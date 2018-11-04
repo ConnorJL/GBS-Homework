@@ -1,38 +1,19 @@
-/*
- * shellsim.c
- *
- *  Created on: 03.11.2018
- *      Author: jobrm
- */
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(int argc, char **argv) {
-
-	char cmd[256];
-	char *checkc;
-	char checki;
-
-	while(1){
-
-		printf("bash: ");
-		checkc = fgets(cmd, 256, stdin);
-
-	    if(cmd[strlen(cmd) - 1] == '\n'){
-	      cmd[strlen(cmd) - 1] = '\0';
-	    }
-
-		if(strcmp(checkc, "s") == 0 || strncmp(cmd, "exit", 4) == 0){
-			break;
-		}
-
-		checki = system(cmd);
-
-		if(checki == -1){
-			break;
-		}
-
-	}
-	return 1;
+int main(int argc, char const *argv[]) {
+    char s[256];
+    while(1) {
+        if(fgets(s, 255, stdin) == NULL) {
+            return -1;
+        }
+        if(strncmp(s,"exit", 4) == 0) {
+            return 0;
+        }
+        else {
+            system(s);
+        }
+    }
 }
+

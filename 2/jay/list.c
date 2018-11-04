@@ -12,7 +12,8 @@
 
 list_t *list_init (){
 
-	list_t *list = malloc(2 * sizeof(struct list_elem *));
+//	list_t *list = malloc(2 * sizeof(struct list_elem *));
+	list_t *list = malloc(sizeof(list_t));	
 	if(list == NULL)
 		return NULL;
 	list->first = NULL;
@@ -26,7 +27,8 @@ struct list_elem *list_insert (list_t *list, char *data){
 	if(list == NULL)
 		return NULL;
 
-	struct list_elem *li_el = malloc(sizeof(struct list_elem *) + sizeof(char *));
+//	struct list_elem *li_el = malloc(sizeof(struct list_elem *) + sizeof(char *));
+	struct list_elem *li_el = malloc(sizeof(struct list_elem));
 	li_el->data = data;
 
 	if(list->first != NULL)
