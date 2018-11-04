@@ -126,7 +126,7 @@ void list_print (list_t *list, void (*print_elem) (char *)){
   struct list_elem *current = list->first;
   int i = 1;
   while (current != NULL) {
-      printf("%d: ", i);
+      printf("%d:", i);
       print_elem(current->data);
 
       current = current->next;
