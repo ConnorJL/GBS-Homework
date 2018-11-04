@@ -15,7 +15,13 @@ int main(int argc, char **argv) {
 	char checki;
 
 	while(1){
+
+		printf("bash: ");
 		checkc = fgets(cmd, 256, stdin);
+
+	    if(cmd[strlen(cmd) - 1] == '\n'){
+	      cmd[strlen(cmd) - 1] = '\0';
+	    }
 
 		if(strcmp(checkc, "s") == 0 || strncmp(cmd, "exit", 4) == 0){
 			break;
@@ -28,4 +34,5 @@ int main(int argc, char **argv) {
 		}
 
 	}
+	return 1;
 }
