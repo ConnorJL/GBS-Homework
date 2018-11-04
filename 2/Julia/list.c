@@ -67,19 +67,26 @@ int list_remove (list_t *list, struct list_elem *elem){
   } else if(current == elem){
     list->first = current->next;
     free(current);
-    free(elem);
     return 0;
   } else {
-    while (current->next != NULL) {
-        if(current == elem){
-            struct list_elem *tmp = current->next;
-            current->next = tmp->next;
-            free(tmp);
-            free(elem);
-            return 0;
-        }
-        current = current->next;
-     }
+    struct list_elem *prev = current;
+    current = current->next;
+
+    while(current->next != NULL){
+      if(current == elem){
+        prev->next = current->next;
+        free(current);
+        return 0;
+      }
+      prev = current;
+      current = current->next;
+    }
+    if(current == elem){
+      prev->next = NULL;
+      list->last = prev;
+      free(current);
+      return 0;
+    }
   }
   return -1;
 }
@@ -91,12 +98,23 @@ void list_finit (list_t *list){
   }
 
   struct list_elem *current = list->first;
-  while (current != NULL) {
-      free(current);
+  if(current == NULL){
+    free(current);
+    return;
+  } else {
+    struct list_elem *prev = current;
+    current = current->next;
+
+    free(prev);
+    while(current->next != NULL){
+      prev = current;
       current = current->next;
+      free(prev);
+
+    }
+    free(current);
+    free(list);
   }
-  free(current);
-  free(list);
 }
 
 
