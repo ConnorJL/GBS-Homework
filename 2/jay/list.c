@@ -31,9 +31,10 @@ struct list_elem *list_insert (list_t *list, char *data){
 
 	if(list->first != NULL)
 		li_el->next = list->first;
-	else
+	else{
+		li_el->next = NULL;
 		list->last = li_el;
-
+	}
 	list->first = li_el;
 
 	return li_el;
@@ -59,7 +60,6 @@ struct list_elem *list_append (list_t *list, char *data){
 
 int list_remove (list_t *list, struct list_elem *elem){
 
-//	int found;
 	//NULL-List
 	if(list == NULL)
 		return -1;
@@ -69,11 +69,10 @@ int list_remove (list_t *list, struct list_elem *elem){
 	if(li_el == NULL)
 		return -1;
 	//check if the first entry matches
-//	found = strcmp(li_el->data, elem->data);
 	if(li_el == elem){
 		list->first = li_el->next;
 		free(li_el);
-		free(elem);
+//		free(elem);
 		return 1;
 	}
 
@@ -81,11 +80,10 @@ int list_remove (list_t *list, struct list_elem *elem){
 	struct list_elem *li_el_next = li_el->next;
 	while(li_el_next != NULL){
 
-//		found = strcmp(li_el_next->data, elem->data);
-		if(li_el == elem){
+		if(li_el_next == elem){
 			li_el->next = li_el_next->next;
 			free(li_el_next);
-			free(elem);
+//			free(elem);
 			return 1;
 		}
 		li_el = li_el_next;

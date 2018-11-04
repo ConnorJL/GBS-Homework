@@ -18,17 +18,22 @@ int main(int argc, char **argv) {
 		exit(-1);
 	}
 
+//	char argv[11][256] = {{"./lt"},{"-i"},{"Happy"},{"-i"},{"GBS"},{"-i"},{"everyone"},{"-r"},{"GBS"},{"-a"},{"Now"}};
+//	int argc = 11;
+
 
 	int i = 1;
 	char *cmd = argv[i];
 	char *args = argv[i+1];
 
-	while(i <= argc && cmd != NULL && args != NULL){
+	while(i < argc && cmd != NULL && args != NULL){
 
-		if(cmd[i] != '-')
-			break;
+		if(cmd[0] != '-'){
+			i++;
+			continue;
+		}
 
-		switch(cmd[i+1]){
+		switch(cmd[1]){
 			case 'a':
 				list_append(li, args);
 				break;
