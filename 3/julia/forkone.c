@@ -24,7 +24,6 @@ int main(int argc, char *argv[]) {
   int pid = fork();
   if(pid < 0){
     printf("Error");
-    break;
   } else if (pid == 0){
     while(i <= k){
       printf("%u %u %d\n", getpid(), getppid(), i);
