@@ -49,7 +49,8 @@ int main(int argc, char *argv[]) {
 
     if(r == 1){
       srand(time(NULL));
-      max = (rand() % (int)(1.5*K)) + (K/2);
+      double r = (1.5*K) - (K/2) + 1;
+      max = (K/2) + (int)(r * rand()/(RAND_MAX+1.0));
     }
 
     pid_t pid = fork();
@@ -70,9 +71,9 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  list_print(li, print_string);
+  //list_print(li, print_string);
   //return exit codes and remove child_pid
-  
+
   for(int i = 1; i <= N; i++){
     //save child pid in list
     pid_t child_pid = wait(&exit_code);
