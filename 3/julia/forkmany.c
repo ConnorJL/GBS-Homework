@@ -13,6 +13,14 @@ int main(int argc, char *argv[]) {
   int N = 1;
   int K = 10;
 
+  //list for child_pid
+  list_t *li = list_init();
+  struct list_elem *li_el;
+	if(li == NULL){
+		perror("Cannot allocate memory");
+		exit(-1);
+	}
+
   //handle arguments
   while((param = getopt(argc, argv, "n:k:r")) != -1){
     switch (param){
@@ -54,22 +62,21 @@ int main(int argc, char *argv[]) {
         sleep(1);
         count++;
       }
+      pid_t child_pid = getpid();
+      pid_t *child_pointer = &child_pid;
+      list_insert(li, child_pointer);
       exit((getpid()+max)%100);
     }
   }
 
   //return exit codes and save children in list
-  list_t *li = list_init();
-	if(li == NULL){
-		perror("Cannot allocate memory");
-		exit(-1);
-	}
 
   for(int i = 1; i <= N; i++){
     //save child pid in list
     pid_t child_pid = wait(&exit_code);
     pid_t *child_pointer = &child_pid;
-    list_insert(li, child_pointer);
+    li_el = list_find(li, child_pointer, NULL);
+		list_remove(li, li_el);
 
     //return exit codes
     if (WIFEXITED(exit_code)){
@@ -77,10 +84,12 @@ int main(int argc, char *argv[]) {
     }
   }
 
+
   //print endtime
   time(&end_time);
   printf("Ende: %s", ctime(&end_time));
 
-  //list_print(li, print_string);
+  list_finit(li);
+  return 0;
 
 }

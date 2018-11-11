@@ -111,13 +111,12 @@ void list_finit (list_t *list){
 struct list_elem *list_find (list_t *list, pid_t *pid, int (*cmp_elem) (const pid_t *, const pid_t *)){
 	if(list == NULL)
 		return NULL;
+
 	struct list_elem *li_el = list->first;
-	int found;
 
 	while(li_el != NULL){
 
-		found = cmp_elem(li_el->pid, pid);
-		if(!found){
+		if(li_el->pid == pid){
 			return li_el;
 		}
 		li_el = li_el->next;
