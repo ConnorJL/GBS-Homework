@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 	int counter, count_to = 10, opt;
 	int childcount = 1;
 	int random_mode = 0;
-	int pid, i, state;
+	int pid, state;
 
 	list_t *li;
 	struct list_elem *li_el;
@@ -72,13 +72,10 @@ int main(int argc, char **argv) {
         case 'r':
 			random_mode = 1;
 			break;
-//        default: /* '?' */
-//            exit(EXIT_FAILURE);
         }
     }
-
+	printTime("Start: ");
     //Threads creating loop
-	i = childcount;
     while(childcount > 0){
 
     	if(random_mode){
@@ -89,35 +86,28 @@ int main(int argc, char **argv) {
     	}
 
 		if((pid = fork()) == 0){
-			list_append(li, pid);
-			printTime("Start: ");
+
 			countTo(counter);
-			printTime("Ende: ");
+
 			exit(0);
+		}else{
+			list_append(li, pid);
 		}
 
 		childcount--;
     }
 
 	//Wait for every child Process
-	childcount = i;
-	while(childcount > 0){
-		pid = wait(&state);;
-		li_el = list_find(li,pid,NULL);
-		list_remove(li, li_el);
-		childcount--;
-	}
+	li_el = list_get(li);
+    while(li_el != NULL){
+    	pid = li_el->data;
+    	waitpid(pid, &state, 0);
+    	free(li_el);
+    	li_el = list_get(li);
+    }
 
+	printTime("Ende: ");
     list_finit(li);
 	return 1;
-
-//	//Wait for every child Process
-//	li_el = list_get(li);
-//    while(li_el != NULL){
-//    	pid = li_el->data;
-//    	waitpid(pid, NULL, 0);
-//    	free(li_el);
-//    	li_el = list_get(li);
-//    }
 
 }
