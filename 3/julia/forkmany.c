@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
       max = (rand() % (int)(1.5*K)) + (K/2);
     }
 
-    int pid = fork();
+    pid_t pid = fork();
     if(pid < 0){
       printf("Error");
       break;
@@ -62,15 +62,17 @@ int main(int argc, char *argv[]) {
         sleep(1);
         count++;
       }
-      pid_t child_pid = getpid();
+      exit((getpid()+max)%100);
+    } else {
+      pid_t child_pid = pid;
       pid_t *child_pointer = &child_pid;
       list_insert(li, child_pointer);
-      exit((getpid()+max)%100);
     }
   }
 
-  //return exit codes and save children in list
-
+  list_print(li, print_string);
+  //return exit codes and remove child_pid
+  
   for(int i = 1; i <= N; i++){
     //save child pid in list
     pid_t child_pid = wait(&exit_code);
