@@ -15,12 +15,12 @@ list_t *list_init (){
 	return list;
 }
 
-struct list_elem *list_insert (list_t *list, char *data){
+struct list_elem *list_insert (list_t *list, pid_t *pid){
 	if(list == NULL)
 		return NULL;
 
 	struct list_elem *li_el = malloc(sizeof(struct list_elem));
-	li_el->data = data;
+	li_el->pid = pid;
 
 	if(list->first != NULL)
 		li_el->next = list->first;
@@ -33,12 +33,12 @@ struct list_elem *list_insert (list_t *list, char *data){
 	return li_el;
 }
 
-struct list_elem *list_append (list_t *list, char *data){
+struct list_elem *list_append (list_t *list, pid_t *pid){
 	if(list == NULL)
 		return NULL;
 
 	struct list_elem *li_el = malloc(sizeof(struct list_elem *) + sizeof(char *));
-	li_el->data = data;
+	li_el->pid = pid;
 	li_el->next = NULL;
 	if(list->last != NULL)
 		list->last->next = li_el;
@@ -108,7 +108,7 @@ void list_finit (list_t *list){
 	free(list);
 }
 
-struct list_elem *list_find (list_t *list, char *data, int (*cmp_elem) (const char *, const char *)){
+struct list_elem *list_find (list_t *list, pid_t *pid, int (*cmp_elem) (const pid_t *, const pid_t *)){
 	if(list == NULL)
 		return NULL;
 	struct list_elem *li_el = list->first;
@@ -116,7 +116,7 @@ struct list_elem *list_find (list_t *list, char *data, int (*cmp_elem) (const ch
 
 	while(li_el != NULL){
 
-		found = cmp_elem(li_el->data, data);
+		found = cmp_elem(li_el->pid, pid);
 		if(!found){
 			return li_el;
 		}
@@ -126,11 +126,11 @@ struct list_elem *list_find (list_t *list, char *data, int (*cmp_elem) (const ch
 	return NULL;
 }
 
-void print_string (char *data){
-	printf("%s", data);
+void print_string (pid_t *pid){
+	printf("%u", *pid);
 }
 
-void list_print (list_t *list, void (*print_elem) (char *)){
+void list_print (list_t *list, void (*print_elem) (pid_t *)){
 	if(list == NULL)
 		return;
 	struct list_elem *li_el = list->first;
@@ -138,7 +138,7 @@ void list_print (list_t *list, void (*print_elem) (char *)){
 
 	while(li_el != NULL){
 		printf("%i:", i);
-		print_elem(li_el->data);
+		print_elem(li_el->pid);
 		printf("\n");
 		li_el = li_el->next;
 		i++;

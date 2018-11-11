@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
   time(&start_time);
   printf("Start: %s", ctime(&start_time));
 
-  //produce working child processes
+  //produce child processes
   for(int i = 1; i <= N; i++){
     int max = K;
     int count = 1;
@@ -59,18 +59,17 @@ int main(int argc, char *argv[]) {
   }
 
   //return exit codes and save children in list
-  list_t *list_of_children = list_init();
-	if(list_of_children == NULL){
+  list_t *li = list_init();
+	if(li == NULL){
 		perror("Cannot allocate memory");
 		exit(-1);
 	}
+
   for(int i = 1; i <= N; i++){
     //save child pid in list
-    int child_pid = wait(&exit_code);
-    char child_pid_char[10];
-    snprintf( child_pid_char, 10, "%d", child_pid);
-    char *child_pid_pointer = child_pid_char;
-    list_insert(list_of_children, child_pid_pointer);
+    pid_t child_pid = wait(&exit_code);
+    pid_t *child_pointer = &child_pid;
+    list_insert(li, child_pointer);
 
     //return exit codes
     if (WIFEXITED(exit_code)){
@@ -81,5 +80,7 @@ int main(int argc, char *argv[]) {
   //print endtime
   time(&end_time);
   printf("Ende: %s", ctime(&end_time));
+
+  //list_print(li, print_string);
 
 }
