@@ -36,6 +36,16 @@ struct list_elem *list_append(list_t *list, char *data) {
     new->next = NULL;
     new->data = data;
 
+    if(list->first == NULL) {
+        list->first = new;
+        return new;
+    }
+    
+    if(list->last == NULL) {
+        list->last=new;
+        return new;
+    }
+    
     list->last->next = new;
     list->last = new;
     return new;
