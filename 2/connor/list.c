@@ -15,6 +15,9 @@ list_t *list_init() {
 }
 
 struct list_elem *list_insert(list_t *list, char *data) {
+    if(list == NULL) {
+        return NULL;
+    }
     struct list_elem *new = (struct list_elem*) malloc(sizeof(struct list_elem));
     if(new == NULL) {
         return NULL;
@@ -24,10 +27,16 @@ struct list_elem *list_insert(list_t *list, char *data) {
     new->data = data;
 
     list->first = new;
+    if(list->last == NULL) {
+        list->last = new;
+    }
     return new;
 }
 
 struct list_elem *list_append(list_t *list, char *data) {
+    if(list == NULL) {
+        return NULL;
+    }
     struct list_elem *new = (struct list_elem*) malloc(sizeof(struct list_elem));
     if(new == NULL) {
         return NULL;
@@ -38,11 +47,7 @@ struct list_elem *list_append(list_t *list, char *data) {
 
     if(list->first == NULL) {
         list->first = new;
-        return new;
-    }
-    
-    if(list->last == NULL) {
-        list->last=new;
+        list->last = new;
         return new;
     }
     
@@ -51,13 +56,26 @@ struct list_elem *list_append(list_t *list, char *data) {
     return new;
 }
 
+// TODO Not working
 int list_remove(list_t *list, struct list_elem *elem) {
+    if(list == NULL) {
+        return NULL;
+    }
     struct list_elem *current = list->first;
     struct list_elem *previous = NULL;
 
     while(current != NULL) {
         if(current == elem) {
-            previous = current->next;
+            if(previous == NULL && list->last == NULL) {
+                free(current);
+                list->first = NULL;
+                return 0;
+            }
+            if(previous == NULL) {
+                list->first = current->next;
+            }
+
+            previous->next = current->next;
             free(current);
             return 0;
         }
@@ -70,6 +88,9 @@ int list_remove(list_t *list, struct list_elem *elem) {
 }
 
 void list_finit(list_t *list) {
+    if(list == NULL) {
+        return NULL;
+    }
     struct list_elem *current = list->first;
     struct list_elem *next = NULL;
 
@@ -84,6 +105,9 @@ void list_finit(list_t *list) {
 }
 
 struct list_elem *list_find(list_t *list, char *data, int (*cmp_elem) (const char *, const char *)) {
+    if(list == NULL) {
+        return NULL;
+    }
     struct list_elem *current = list->first;
 
     while(current != NULL) {
@@ -96,6 +120,9 @@ struct list_elem *list_find(list_t *list, char *data, int (*cmp_elem) (const cha
 }
 
 void list_print(list_t *list, void (*print_elem) (char *)) {
+    if(list == NULL || list->first==NULL) {
+        return NULL;
+    }
     struct list_elem *current = list->first;
 
     while(current != NULL) {
