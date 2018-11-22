@@ -82,7 +82,6 @@ int main(int argc, char const *argv[])
             }
             int status = WEXITSTATUS(stat);
             printf("Exit-Code: %i\n", status);
-            time(&now);
         }
 
         printf("Ende: %s", ctime(&now));
