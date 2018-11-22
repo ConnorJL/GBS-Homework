@@ -5,6 +5,13 @@
 
 #include "list.h"
 
+int compare_int(const char* a, const char* b) {
+    if(a == b) {
+        return 0;
+    }
+    return 1;
+}
+
 int main(int argc, char const *argv[])
 {
     int k = 10;
@@ -39,7 +46,7 @@ int main(int argc, char const *argv[])
             break;
         }
         else {
-            list_append(list, &pid);
+            list_append(list, pid);
         }
     }
 
@@ -65,8 +72,14 @@ int main(int argc, char const *argv[])
     else {
         // We are the parent process
         int stat;
-        for(int i=0; i<n; i++) {
-            wait(&stat);
+        pid_t pid;
+        struct list_elem* elem;
+        while(list->first != NULL) {
+            pid = wait(&stat);
+            elem = list_find(list, pid, compare_int);
+            if(list_remove(list, elem) == -1) {
+                break;
+            }
             int status = WEXITSTATUS(stat);
             printf("Exit-Code: %i\n", status);
             time(&now);

@@ -57,7 +57,7 @@ struct list_elem *list_append(list_t *list, char *data) {
 }
 
 int list_remove(list_t *list, struct list_elem *elem) {
-    if(list == NULL) {
+    if(list == NULL || elem == NULL) {
         return -1;
     }
 
@@ -91,7 +91,7 @@ int list_remove(list_t *list, struct list_elem *elem) {
 
 void list_finit(list_t *list) {
     if(list == NULL) {
-        return NULL;
+        return;
     }
     struct list_elem *current = list->first;
     struct list_elem *next = NULL;
@@ -123,7 +123,7 @@ struct list_elem *list_find(list_t *list, char *data, int (*cmp_elem) (const cha
 
 void list_print(list_t *list, void (*print_elem) (char *)) {
     if(list == NULL || list->first==NULL) {
-        return NULL;
+        return;
     }
     struct list_elem *current = list->first;
 
