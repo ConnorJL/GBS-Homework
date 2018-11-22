@@ -56,34 +56,36 @@ struct list_elem *list_append(list_t *list, char *data) {
     return new;
 }
 
-// TODO Not working
 int list_remove(list_t *list, struct list_elem *elem) {
     if(list == NULL) {
-        return NULL;
+        return -1;
     }
+
     struct list_elem *current = list->first;
     struct list_elem *previous = NULL;
 
+
     while(current != NULL) {
         if(current == elem) {
-            if(previous == NULL && list->last == NULL) {
-                free(current);
-                list->first = NULL;
-                return 0;
-            }
+            // First elem of list
             if(previous == NULL) {
-                list->first = current->next;
+                list->first = list->first->next;
+                // Only element?
+                if(list->last == current) {
+                    list->last = list->first;
+                }
             }
-
-            previous->next = current->next;
+            // Not first elem
+            else {
+                previous->next = current->next;
+            }
             free(current);
             return 0;
         }
-        else {
-            previous = current;
-            current = current->next;
-        }
+        previous = current;
+        current = current->next;
     }
+    
     return -1;
 }
 
