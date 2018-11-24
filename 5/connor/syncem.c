@@ -7,6 +7,9 @@
 
 #include "list.h"
 
+int f = 0;
+int l = 0;
+
 int compare_int(const char* a, const char* b) {
     if(a == b) {
         return 0;
@@ -17,19 +20,17 @@ int compare_int(const char* a, const char* b) {
 struct thread_args {
     int id;
     pthread_mutex_t* mutex;
-    int l;
 };
 
 void* run(void* args) {
     struct thread_args* arg = (struct thread_args*) args;
     pthread_mutex_t *mutex = arg->mutex;
     int id = arg->id;
-    int l = arg->l;
 
-    char* f = (char*) malloc(sizeof(char)*64);
+    char* fi = (char*) malloc(sizeof(char)*64);
     char* output = (char*) malloc(sizeof(char)*128);
-    sprintf(f, "%i.txt", id);
-    int filedesc = open(f, O_RDONLY);
+    sprintf(fi, "%i.txt", id);
+    int filedesc = open(fi, O_RDONLY);
 
     int i = 0;
     int done = 0;
@@ -53,9 +54,10 @@ void* run(void* args) {
             write(1, "\n", 1);
             pthread_mutex_unlock(mutex);
             sleep(1);
+            i++;
         }
     }
-    else {
+    else if(f == 1) {
         pthread_mutex_lock(mutex);
         while(done != 1) {
             result = read(filedesc, s, 64);
@@ -71,6 +73,7 @@ void* run(void* args) {
             write(1, s, result);
             write(1, "\n", 1);
             sleep(1);
+            i++;
         }
         pthread_mutex_unlock(mutex);
     }
@@ -82,8 +85,6 @@ void* run(void* args) {
 int main(int argc, char const *argv[])
 {
     int n = 1;
-    int l = 0;
-    int f = 0;
 
     int c;
     while( (c=getopt(argc, argv, "n:rlf")) != -1) {
@@ -105,7 +106,7 @@ int main(int argc, char const *argv[])
     }
 
     if(l == f) {
-        printf("Must set either l or f!");
+        printf("Must set either l or f!\n");
         return -1;
     }
     
@@ -122,7 +123,6 @@ int main(int argc, char const *argv[])
 
         args[i].mutex = &mutex;
         args[i].id = i;
-        args[i].l = l;
 
         pthread_create(&thread, NULL, run, &args[i]);
         list_append(list, thread);
