@@ -22,11 +22,11 @@ int main(int argc, char const *argv[], char *envp[]) {
     while(1) {
         printf("$ ");
         if(fgets(s, 1024, stdin) != NULL) {
+            list_t* list = parse(s);
+            print_list(list);
             if(strcmp(s, "exit\n") == 0) {
                 return 0;
             }
-            list_t* list = parse(s);
-            print_list(list);
         }
     }
     
