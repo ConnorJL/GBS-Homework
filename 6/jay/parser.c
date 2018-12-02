@@ -28,9 +28,6 @@ list_t *parseUserInput(char *userInput) {
 	int elementIndex = 0;
 	int encState = normal; 	//Encapsulated State
 
-	//Add Output Info
-//	sprintf(currentElement, "%d:", elementNumber + 1);
-
 	//Skip Empty Input
 	if (lastIndex <= 1)
 		return userInputElements;
@@ -123,9 +120,6 @@ list_t *parseUserInput(char *userInput) {
 
 				if (userInput[userInputIndex] == '\n') //If there are Spaces after last element
 					return userInputElements;
-//				if (userInputIndex < lastIndex)
-//					//Add Output Info for next Element
-//					sprintf(currentElement, "%d:", elementNumber + 1);
 			} else {		//Normal char, copy to element
 				currentElement[elementIndex] = userInput[userInputIndex];
 				userInputIndex++;
