@@ -61,19 +61,22 @@ list_t *parseUserInput(char *userInput) {
 		case '$':		//Parse Environment Variable
 			userInputIndex++;
 			int counter = 0;
-			while (isupper(userInput[userInputIndex])) {
+			while (isupper(userInput[userInputIndex])
+					|| userInput[userInputIndex] == '_') {
 				envVarName[counter] = userInput[userInputIndex];
 				counter++;
 				userInputIndex++;
 			}
-			if (0 < counter) {
-				envVarContent = getenv(envVarName);
+			if (0 < counter && (envVarContent = getenv(envVarName)) != NULL) {
 				counter = strlen(envVarContent);
 				currentElement = realloc(
 						currentElement,	//Adapt Memory size to new Stringsize
 						(maxSize + counter + strlen(currentElement))
 								* sizeof(char));
-				strcat(currentElement, envVarContent); //append VarContent to Output
+				if (elementIndex)		//Append or unique Element?
+					strcat(currentElement, envVarContent); //append VarContent to Output
+				else
+					currentElement = envVarContent; 		//unique Element
 				elementIndex += counter;
 			}
 			break;
@@ -111,6 +114,10 @@ list_t *parseUserInput(char *userInput) {
 				if (list_append(userInputElements,
 						strdup(currentElement)) == NULL)
 					return userInputElements; //ERROR
+				//Reset currentElement
+				int count = strlen(currentElement);
+				for (int i = 0; i < count; i++)
+					currentElement[i] = '\0';
 
 				elementNumber++;
 				elementIndex = 0; 	//Reset Counter to 2 (0 & 1 is OutputInfo)
