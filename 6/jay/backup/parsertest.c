@@ -18,12 +18,8 @@ void print_string(char *data) {
 	printf("%s\n", data);
 }
 
-void print_list(list_t *list) {
-
-	if (list == NULL || list->first == NULL)
-		return ;
-
-    struct list_elem *current = list->first;
+void print_list(list_t *t) {
+    struct list_elem *current = t->first;
     int i = 1;
     while (current != NULL) {
         printf("%i:%s\n", i, current->data);

@@ -17,12 +17,6 @@ void             list_finit (list_t *list);
 void             list_print (list_t *list, void (*print_elem) (char *));
 struct list_elem *list_find (list_t *list, char *data, int (*cmp_elem) (const char *, const char *));
 
-////////////////////////////////////////
-////////   Adapt Start  ////////////////
-////////////////////////////////////////
-
-int list_size(list_t *list);
-int list_to_array(list_t *list, char *resultArray[]);
 
 
 
