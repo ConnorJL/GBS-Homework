@@ -7,7 +7,6 @@
 #define SPACE 1
 #define DOUBLEQUOTES 2
 #define QUOTES 3
-//#define DOLLAR 4
 
 void append(char* s, char c) {
         int len = strlen(s);
@@ -42,7 +41,6 @@ void add_buffer_to_list(list_t* l, char* buffer) {
     buffer[0] = '\0';
 }
 
-// TODO: Correct termination of DOLLAR mode
 list_t* parse(char *s) {
     list_t *l = list_init();
     int state = NORMAL;
@@ -63,6 +61,10 @@ list_t* parse(char *s) {
                 continue;
             }
             else if (state == DOUBLEQUOTES || state == QUOTES) {
+                if(dollar == 1) {
+                    expand_variable(buffer, var_start);
+                    dollar = 0;
+                }
                 // Space within quotes
                 append(buffer, ' ');
                 i++;
@@ -118,6 +120,11 @@ list_t* parse(char *s) {
         }
 
         if(c == '$') {
+            if(dollar == 1) {
+                expand_variable(buffer, var_start);
+                dollar = 0;
+                continue;
+            }
             var_start = strlen(buffer);
             dollar = 1;
             i++;
@@ -125,6 +132,9 @@ list_t* parse(char *s) {
         }
 
         if(c == '\\') {
+            if(state == SPACE) {
+                state = NORMAL;
+            }
             if(i+1 < len) {
                 append(buffer, s[i+1]);
                 i = i+2;
