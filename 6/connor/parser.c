@@ -48,6 +48,7 @@ list_t* parse(char *s) {
     int i = 0;
     char c;
     char buffer[1024];
+    buffer[0] = '\0';
     int var_start = 0;
     int dollar = 0;
 
