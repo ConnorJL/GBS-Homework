@@ -93,7 +93,7 @@ int main(int argc, char const *argv[], char *envp[])
                         ptr = strtok(NULL, ":");
                     }
 
-                    print_list(path_list);
+                    // print_list(path_list);
 
                     char** paths = list_to_array(path_list);
                     int num_paths = list_len(path_list);
