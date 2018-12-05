@@ -13,32 +13,36 @@ void append(char* s, char c) {
         s[len] = c;
         s[len+1] = '\0';
 }
-
-void expand_variable(char* buffer, int start) {
+/*
+int expand_variable(char* buffer, int start, int buffer_len) {
     int len = strlen(buffer) - start;
     char* substring = (char*) malloc(len*sizeof(char));
     strncpy(substring, buffer+start, len);
     char* var = getenv(substring);
-    strcpy(buffer+start, var);
-}
 
-void add_buffer_to_list(list_t* l, char* buffer) {
+    int var_len = strlen(var);
+    buffer = (char*) realloc(buffer, buffer_len + var_len);
+
+    strcpy(buffer+start, var);
+
+    return buffer_len + var_len;
+}
+*/
+char* add_buffer_to_list(list_t* l, char* buffer) {
     if(buffer[0] == '\0') {
-        return;
+        return buffer;
     }
     char* new;
-    /*if (state == DOLLAR) {
-        // Expand variable and add to list
-        char* var = getenv(buffer);
-        new = (char*) malloc(strlen(var) * sizeof(char));
-        strcpy(new, var);
-    }*/
     
     new = (char*) malloc(strlen(buffer) * sizeof(char));
     strcpy(new, buffer);
 
     list_append(l, new);
+
+    free(buffer);
+    buffer = (char*) malloc(1024);
     buffer[0] = '\0';
+    return buffer;
 }
 
 list_t* parse(char *s) {
@@ -47,10 +51,11 @@ list_t* parse(char *s) {
     int len = strlen(s);
     int i = 0;
     char c;
-    char buffer[1024];
+    char* buffer = (char*) malloc(1024);
     buffer[0] = '\0';
     int var_start = 0;
     int dollar = 0;
+    int buffer_len = 1024;
 
     while(i < len) {
         c = s[i];
@@ -63,7 +68,17 @@ list_t* parse(char *s) {
             }
             else if (state == DOUBLEQUOTES || state == QUOTES) {
                 if(dollar == 1) {
-                    expand_variable(buffer, var_start);
+                    // Expand variable
+                    int len = strlen(buffer) - var_start;
+                    char* substring = (char*) malloc(len*sizeof(char));
+                    strncpy(substring, buffer+var_start, len);
+                    char* var = getenv(substring);
+                    free(substring);
+                    int var_len = strlen(var);
+                    buffer_len = buffer_len + var_len;
+                    buffer = (char*) realloc(buffer, buffer_len);
+                    strcpy(buffer+var_start, var);
+
                     dollar = 0;
                 }
                 // Space within quotes
@@ -74,10 +89,19 @@ list_t* parse(char *s) {
             else {
                 // State is normal or DOLLAR, add buffer to list
                 if(dollar == 1) {
-                    expand_variable(buffer, var_start);
+                    // Expand variable
+                    int len = strlen(buffer) - var_start;
+                    char* substring = (char*) malloc(len*sizeof(char));
+                    strncpy(substring, buffer+var_start, len);
+                    char* var = getenv(substring);
+                    free(substring);
+                    int var_len = strlen(var);
+                    buffer_len = buffer_len + var_len;
+                    buffer = (char*) realloc(buffer, buffer_len);
+                    strcpy(buffer+var_start, var);
                     dollar = 0;
                 }
-                add_buffer_to_list(l, buffer);
+                buffer = add_buffer_to_list(l, buffer);
                 state = SPACE;
                 i++;
                 continue;
@@ -122,7 +146,16 @@ list_t* parse(char *s) {
 
         if(c == '$') {
             if(dollar == 1) {
-                expand_variable(buffer, var_start);
+                // Expand variable
+                int len = strlen(buffer) - var_start;
+                char* substring = (char*) malloc(len*sizeof(char));
+                strncpy(substring, buffer+var_start, len);
+                char* var = getenv(substring);
+                free(substring);
+                int var_len = strlen(var);
+                buffer_len = buffer_len + var_len;
+                buffer = (char*) realloc(buffer, buffer_len);
+                strcpy(buffer+var_start, var);
                 dollar = 0;
                 continue;
             }
@@ -149,10 +182,19 @@ list_t* parse(char *s) {
 
         if(c == '\n') {
             if(dollar == 1) {
-                expand_variable(buffer, var_start);
+                // Expand variable
+                int len = strlen(buffer) - var_start;
+                char* substring = (char*) malloc(len*sizeof(char));
+                strncpy(substring, buffer+var_start, len);
+                char* var = getenv(substring);
+                free(substring);
+                int var_len = strlen(var);
+                buffer_len = buffer_len + var_len;
+                buffer = (char*) realloc(buffer, buffer_len);
+                strcpy(buffer+var_start, var);
                 dollar = 0;
             }
-            add_buffer_to_list(l, buffer);
+            buffer = add_buffer_to_list(l, buffer);
             break;
         }
 
@@ -165,7 +207,16 @@ list_t* parse(char *s) {
                 continue;
             }
             else {
-                expand_variable(buffer, var_start);
+                // Expand variable
+                int len = strlen(buffer) - var_start;
+                char* substring = (char*) malloc(len*sizeof(char));
+                strncpy(substring, buffer+var_start, len);
+                char* var = getenv(substring);
+                free(substring);
+                int var_len = strlen(var);
+                buffer_len = buffer_len + var_len;
+                buffer = (char*) realloc(buffer, buffer_len);
+                strcpy(buffer+var_start, var);
                 dollar = 0;
                 continue;
             }
@@ -178,6 +229,8 @@ list_t* parse(char *s) {
             i++;
         }
     }
+
+    free(buffer);
 
     return l;
 }

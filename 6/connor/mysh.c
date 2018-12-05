@@ -60,10 +60,11 @@ int main(int argc, char const *argv[], char *envp[])
             }
             else {
                 pid = fork();
-                // pid = 1;
+                //pid = 0;
                 if(pid == 0) {
                     char** args = list_to_array(list);
                     char* name = args[0];
+                    char* one = args[1];
 
                     if(strchr(name, '/') != NULL) {
                         char* last_slash_ptr = strrchr(name, '/');
@@ -82,16 +83,17 @@ int main(int argc, char const *argv[], char *envp[])
                     char* ptr;
 
                     char* PATH = getenv("PATH");
-                    // Not how this works
                     ptr = strtok(PATH, ":");
                     int len;
                     while(ptr != NULL) {
                         len = strlen(ptr);
-                        char* buffer = (char*) malloc(len * sizeof(char));
-                        strncpy(buffer, ptr, len);
+                        char* buffer = (char*) malloc(len * sizeof(char)+1);
+                        strncpy(buffer, ptr, len+1);
                         list_append(path_list, buffer);
                         ptr = strtok(NULL, ":");
                     }
+
+                    print_list(path_list);
 
                     char** paths = list_to_array(path_list);
                     int num_paths = list_len(path_list);
