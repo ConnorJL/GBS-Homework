@@ -8,6 +8,8 @@
 
 list_t* parse(char* s);
 
+#define DEBUG
+
 void print_list(list_t *t) {
     struct list_elem *current = t->first;
     int i = 1;
@@ -30,14 +32,15 @@ int list_len(list_t* list) {
 }
 
 char** list_to_array(list_t* list) {
-    int len = list_len(list);
+    int len = list_len(list) + 1;
     char** out = (char**) malloc(sizeof(char*) * len);
     struct list_elem* current = list->first;
 
-    for(int i=0; i < len; i++) {
+    for(int i=0; i < len-1; i++) {
         out[i] = current->data;
         current = current->next;
     }
+    out[len-1] = NULL;
 
     return out;
 }
@@ -59,12 +62,15 @@ int main(int argc, char const *argv[], char *envp[])
                 return 0;
             }
             else {
-                pid = fork();
+                #ifdef DEBUG
+                    pid = 0;
+                #else
+                    pid = fork();
+                #endif
                 //pid = 0;
                 if(pid == 0) {
                     char** args = list_to_array(list);
                     char* name = args[0];
-                    char* one = args[1];
 
                     if(strchr(name, '/') != NULL) {
                         char* last_slash_ptr = strrchr(name, '/');
@@ -108,7 +114,9 @@ int main(int argc, char const *argv[], char *envp[])
                         else {
                             return 0;
                         }
+                        
                     }
+                    printf("ERROR");
                     return -1;
                 }
                 else {
