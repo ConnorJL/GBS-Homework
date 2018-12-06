@@ -21,21 +21,21 @@ void print_string(char *data) {
 void print_list(list_t *list) {
 
 	if (list == NULL || list->first == NULL)
-		return ;
+		return;
 
-    struct list_elem *current = list->first;
-    int i = 1;
-    while (current != NULL) {
-        printf("%i:%s\n", i, current->data);
-        current = current->next;
-        i++;
-    }
+	struct list_elem *current = list->first;
+	int i = 1;
+	while (current != NULL) {
+		printf("%i:%s\n", i, current->data);
+		current = current->next;
+		i++;
+	}
 }
 
 int main(int argc, char *argv[], char *envp[]) {
 
 	char *userInput = malloc(maxSize * sizeof(char));
-//	char *userInput = "gg\n"; //DEBUG TESTER
+//	char *userInput = "$PWD$PWD\n"; //DEBUG TESTER
 	list_t *userInputElements;
 
 	while (1) {
@@ -46,15 +46,17 @@ int main(int argc, char *argv[], char *envp[]) {
 			return -1;
 
 		//Terminate Prompt
-		if (strcmp(userInput, "exit\n") == 0){
+		if (strcmp(userInput, "exit\n") == 0) {
 			printf("1:%s\n", "exit");
 			break;
 		}
 
 		userInputElements = parseUserInput(userInput);
-		print_list(userInputElements);
-		list_finit(userInputElements);
-		userInputElements = list_init();
+		if (userInputElements != NULL) {
+			print_list(userInputElements);
+			list_finit(userInputElements);
+			userInputElements = list_init();
+		}
 	}
 
 	free(userInput);

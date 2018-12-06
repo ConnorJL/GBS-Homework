@@ -16,130 +16,144 @@
 #define encapsulatedA 1  	// encapsulated by "
 #define encapsulatedB 2		// encapsulated by '
 
+void clearStringRange(char *string, int from, int to) {
+	for (int i = from; i < to; i++)
+		string[i] = '\0';
+}
+
+void initString(char *string) {
+	string[0] = '\0';
+}
+
+void appendChar(char* s, char c) {
+	int len = strlen(s);
+	s[len] = c;
+	s[len + 1] = '\0';
+}
+
+void appendString(list_t* l, char *string) {
+	if (string[0] == '\0')
+		return;
+
+	list_append(l, strdup(string));
+	initString(string);
+}
+
 list_t *parseUserInput(char *userInput) {
 
 	list_t *userInputElements = list_init();
 	int userInputIndex = 0;
 	int lastIndex = strlen(userInput);
-	char *currentElement = malloc(maxSize * sizeof(char));
-	char *envVarName = malloc(maxSize * sizeof(char));
-	char *envVarContent = malloc(maxSize * sizeof(char));
-	int elementNumber = 0;
-	int elementIndex = 0;
+	int memoryNeeded = (maxSize * sizeof(char));
+	char c;
+	char *currentElement = (char *) malloc(memoryNeeded);
+	char *envVarName = (char *) malloc(memoryNeeded);
+	char *envVarContent = (char *) malloc(memoryNeeded);
+	initString(currentElement);
+	initString(envVarName);
+	initString(envVarContent);
+//	int elementNumber = 0;
 	int encState = normal; 	//Encapsulated State
 
 	//Skip Empty Input
-	if (lastIndex <= 1)
+	if (lastIndex < 1)
 		return userInputElements;
 
 	//Split String Elements
 	while (userInputIndex <= lastIndex) {
 
-		switch (userInput[userInputIndex]) {
-		case '"': 		//toggle Encapsulate
+		c = userInput[userInputIndex];
+
+		switch (c) {
+		case '"': 		//toggle Encapsulate A
 			if (encState == normal)
 				encState = encapsulatedA;
 			else if (encState == encapsulatedA)
 				encState = normal;
 			else { 		//Already Encapsulated by '
-				currentElement[elementIndex] = userInput[userInputIndex];
-				elementIndex++;
+				appendChar(currentElement, c);
 			}
 			userInputIndex++;
 			break;
-		case '\'': 		//toggle Encapsulate
+		case '\'': 		//toggle Encapsulate B
 			if (encState == normal)
 				encState = encapsulatedB;
 			else if (encState == encapsulatedB)
 				encState = normal;
 			else { 		//Already Encapsulated by "
-				currentElement[elementIndex] = userInput[userInputIndex];
-				elementIndex++;
+				appendChar(currentElement, c);
 			}
 			userInputIndex++;
 			break;
 		case '$':		//Parse Environment Variable
 			userInputIndex++;
 			int counter = 0;
+			//Parse Variable Name
 			while (isupper(userInput[userInputIndex])
 					|| userInput[userInputIndex] == '_') {
-				envVarName[counter] = userInput[userInputIndex];
+				appendChar(envVarName, userInput[userInputIndex]);
 				counter++;
 				userInputIndex++;
 			}
-			if (0 < counter && (envVarContent = getenv(envVarName)) != NULL) {
-				counter = strlen(envVarContent);
-				currentElement = realloc(
-						currentElement,	//Adapt Memory size to new Stringsize
-						(maxSize + counter + strlen(currentElement))
-								* sizeof(char));
-				if (elementIndex)		//Append or unique Element?
+			//Get Variable Content
+			envVarContent = strdup(getenv(envVarName));
+
+			if (0 < counter && envVarContent != NULL) {
+					memoryNeeded += strlen(envVarContent) * sizeof(char) - counter - 1;
+					currentElement = (char *) realloc(currentElement, memoryNeeded);
 					strcat(currentElement, envVarContent); //append VarContent to Output
-				else
-					currentElement = envVarContent; 		//unique Element
-				elementIndex += counter;
 			}
+			initString(envVarName);
+			initString(envVarContent);
 			break;
 		case '\\': 		//Ignore control symbols
 			userInputIndex++;
-			currentElement[elementIndex] = userInput[userInputIndex];
+			appendChar(currentElement, userInput[userInputIndex]);
 			userInputIndex++;
-			elementIndex++;
 			break;
 		case '\n':		 //Parsing last Element
 			if (encState == normal) {
-				currentElement[elementIndex] = '\0';
-				if (list_append(userInputElements,
-						strdup(currentElement)) == NULL)
-					return userInputElements; //ERROR
-				//End of Parsing
-				return userInputElements;
+				appendString(userInputElements, currentElement);
+				free(currentElement);
+				free(envVarName);
+				free(envVarContent);
+				return userInputElements;		//--------End of Parsing------------
 			} else {		//Wrongly Encapsulated
 				list_finit(userInputElements);
-				userInputElements = list_init();
-				if (list_append(userInputElements,
-						"ERROR - Wrong encapsulation") == NULL)
-					return userInputElements; //ERROR
-				return userInputElements;
+				printf("ERROR - Wrong encapsulation\n");
+				free(currentElement);
+				free(envVarName);
+				free(envVarContent);
+				return NULL;		//--------End of Parsing------------
 			}
 		case ' ':
-			if (elementIndex == 0 && elementNumber == 0) { //If there are Spaces before first element
-				while (userInput[userInputIndex] == ' ') //Skip Spaces or null-chars
-					userInputIndex++;
-				break;
-			}
 			if (encState == normal) {		//End of current element
-				//Terminate and Insert current Element into Elements-List
-				currentElement[elementIndex] = '\0';
-				if (list_append(userInputElements,
-						strdup(currentElement)) == NULL)
-					return userInputElements; //ERROR
-				//Reset currentElement
-				int count = strlen(currentElement);
-				for (int i = 0; i < count; i++)
-					currentElement[i] = '\0';
 
-				elementNumber++;
-				elementIndex = 0; 	//Reset Counter to 2 (0 & 1 is OutputInfo)
-
-				while (userInput[userInputIndex] == ' ') //Skip Spaces or null-chars
+				while (userInput[userInputIndex] == ' ') //Skip Spaces
 					userInputIndex++;
+				if(strlen(currentElement) == 0)
+					break;
+				//Insert current Element into Elements-List
+				appendString(userInputElements, currentElement);
+				memoryNeeded = (maxSize * sizeof(char));
 
-				if (userInput[userInputIndex] == '\n') //If there are Spaces after last element
-					return userInputElements;
 			} else {		//Normal char, copy to element
-				currentElement[elementIndex] = userInput[userInputIndex];
+
+				appendChar(currentElement, c);
 				userInputIndex++;
-				elementIndex++;
+
 			}
 			break;
 		default: 			//Normal char, copy to element
-			currentElement[elementIndex] = userInput[userInputIndex];
+
+			appendChar(currentElement, c);
 			userInputIndex++;
-			elementIndex++;
 			break;
+
 		}
 	}
-
+//	free(envVarContent);
+//	free(envVarName);
+//	free(currentElement);
 	return userInputElements;
 }
