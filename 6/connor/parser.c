@@ -13,28 +13,27 @@ void append(char* s, char c) {
         s[len] = c;
         s[len+1] = '\0';
 }
-/*
-int expand_variable(char* buffer, int start, int buffer_len) {
-    int len = strlen(buffer) - start;
-    char* substring = (char*) malloc(len*sizeof(char));
-    strncpy(substring, buffer+start, len);
+
+int expand_variable(char** buffer, int start, int length) {
+    int len = strlen(*buffer) - start;
+    char* substring = (char*) malloc(len*sizeof(char) +1 );
+    strncpy(substring, *buffer+start, len+1);
     char* var = getenv(substring);
-
+    free(substring);
     int var_len = strlen(var);
-    buffer = (char*) realloc(buffer, buffer_len + var_len);
-
-    strcpy(buffer+start, var);
-
-    return buffer_len + var_len;
+    length = length + var_len;
+    *buffer = (char*) realloc(*buffer, length);
+    strcpy(*buffer+start, var);
+    return length;
 }
-*/
+
 char* add_buffer_to_list(list_t* l, char* buffer) {
     if(buffer[0] == '\0') {
         return buffer;
     }
     char* new;
     
-    new = (char*) malloc(strlen(buffer) * sizeof(char));
+    new = (char*) malloc(strlen(buffer) * sizeof(char)+1);
     strcpy(new, buffer);
 
     list_append(l, new);
@@ -69,16 +68,7 @@ list_t* parse(char *s) {
             else if (state == DOUBLEQUOTES || state == QUOTES) {
                 if(dollar == 1) {
                     // Expand variable
-                    int len = strlen(buffer) - var_start;
-                    char* substring = (char*) malloc(len*sizeof(char));
-                    strncpy(substring, buffer+var_start, len);
-                    char* var = getenv(substring);
-                    free(substring);
-                    int var_len = strlen(var);
-                    buffer_len = buffer_len + var_len;
-                    buffer = (char*) realloc(buffer, buffer_len);
-                    strcpy(buffer+var_start, var);
-
+                    buffer_len = expand_variable(&buffer, var_start, buffer_len);
                     dollar = 0;
                 }
                 // Space within quotes
@@ -90,15 +80,7 @@ list_t* parse(char *s) {
                 // State is normal or DOLLAR, add buffer to list
                 if(dollar == 1) {
                     // Expand variable
-                    int len = strlen(buffer) - var_start;
-                    char* substring = (char*) malloc(len*sizeof(char));
-                    strncpy(substring, buffer+var_start, len);
-                    char* var = getenv(substring);
-                    free(substring);
-                    int var_len = strlen(var);
-                    buffer_len = buffer_len + var_len;
-                    buffer = (char*) realloc(buffer, buffer_len);
-                    strcpy(buffer+var_start, var);
+                    buffer_len = expand_variable(&buffer, var_start, buffer_len);
                     dollar = 0;
                 }
                 buffer = add_buffer_to_list(l, buffer);
@@ -147,17 +129,12 @@ list_t* parse(char *s) {
         if(c == '$') {
             if(dollar == 1) {
                 // Expand variable
-                int len = strlen(buffer) - var_start;
-                char* substring = (char*) malloc(len*sizeof(char));
-                strncpy(substring, buffer+var_start, len);
-                char* var = getenv(substring);
-                free(substring);
-                int var_len = strlen(var);
-                buffer_len = buffer_len + var_len;
-                buffer = (char*) realloc(buffer, buffer_len);
-                strcpy(buffer+var_start, var);
+                buffer_len = expand_variable(&buffer, var_start, buffer_len);
                 dollar = 0;
                 continue;
+            }
+            if(state == SPACE) {
+                state = NORMAL;
             }
             var_start = strlen(buffer);
             dollar = 1;
@@ -183,15 +160,7 @@ list_t* parse(char *s) {
         if(c == '\n') {
             if(dollar == 1) {
                 // Expand variable
-                int len = strlen(buffer) - var_start;
-                char* substring = (char*) malloc(len*sizeof(char));
-                strncpy(substring, buffer+var_start, len);
-                char* var = getenv(substring);
-                free(substring);
-                int var_len = strlen(var);
-                buffer_len = buffer_len + var_len;
-                buffer = (char*) realloc(buffer, buffer_len);
-                strcpy(buffer+var_start, var);
+                buffer_len = expand_variable(&buffer, var_start, buffer_len);
                 dollar = 0;
             }
             buffer = add_buffer_to_list(l, buffer);
@@ -208,15 +177,7 @@ list_t* parse(char *s) {
             }
             else {
                 // Expand variable
-                int len = strlen(buffer) - var_start;
-                char* substring = (char*) malloc(len*sizeof(char));
-                strncpy(substring, buffer+var_start, len);
-                char* var = getenv(substring);
-                free(substring);
-                int var_len = strlen(var);
-                buffer_len = buffer_len + var_len;
-                buffer = (char*) realloc(buffer, buffer_len);
-                strcpy(buffer+var_start, var);
+                buffer_len = expand_variable(&buffer, var_start, buffer_len);
                 dollar = 0;
                 continue;
             }

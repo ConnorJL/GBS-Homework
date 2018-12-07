@@ -8,7 +8,7 @@
 
 list_t* parse(char* s);
 
-#define DEBUG
+// #define DEBUG
 
 void print_list(list_t *t) {
     struct list_elem *current = t->first;
@@ -88,7 +88,8 @@ int main(int argc, char const *argv[], char *envp[])
                     list_t* path_list = list_init();
                     char* ptr;
 
-                    char* PATH = getenv("PATH");
+                    char* PATH = malloc(strlen(getenv("PATH")));
+                    strcpy(PATH, getenv("PATH"));
                     ptr = strtok(PATH, ":");
                     int len;
                     while(ptr != NULL) {
