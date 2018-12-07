@@ -78,7 +78,7 @@ int main(int argc, char const *argv[], char *envp[])
                         char* new_name = (char*) malloc((strlen(name) - last_slash) * sizeof(char) +1);
                         new_name = strncpy(new_name, name+last_slash+1, strlen(name) - last_slash);
                         args[0] = new_name;
-                        if(execv(name, args) == -1) {
+                        if(execve(name, args, envp) == -1) {
                             printf("ERROR");
                             return -1;
                         }
@@ -109,7 +109,7 @@ int main(int argc, char const *argv[], char *envp[])
                     for(int i=0; i<num_paths; i++) {
                         char* cur_path = paths[i];
                         snprintf(path, 1024, "%s/%s", cur_path, name);
-                        if(execv(path, args) == -1) {
+                        if(execve(path, args, envp) == -1) {
                             continue;
                         }
                         else {
