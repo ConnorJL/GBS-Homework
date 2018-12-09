@@ -57,6 +57,7 @@ list_t* parse(char *s) {
     int buffer_len = 1024;
     int input_file = 0;
     int output_file = 0;
+    int pipe_set = 0;
 
     while(i < len) {
         c = s[i];
@@ -189,6 +190,19 @@ list_t* parse(char *s) {
                 }
                 output_file = 1;
                 strcpy(buffer, ">");
+                add_buffer_to_list(l, buffer);
+                i++;
+                continue;
+            }
+        }
+
+        if(c == '|') {
+            if(state == SPACE) {
+                if(output_file == 1 || input_file == 1 || pipe_set == 1) {
+                    return NULL;
+                }
+                pipe_set = 1;
+                strcpy(buffer, "|");
                 add_buffer_to_list(l, buffer);
                 i++;
                 continue;

@@ -1,4 +1,5 @@
 #include <fcntl.h>
+#include <signal.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -104,6 +105,72 @@ char* get_input_file(list_t* list) {
     }
     return NULL;
 }
+
+int find_pipe(list_t* list) {
+    int i = 0;
+    struct list_elem* current = list->first;
+
+    while(current != NULL) {
+        if(strcmp(current->data, "|") == 0) {
+            return i;
+        }
+        i++;
+        current = current->next;
+    }
+    return -1;
+}
+
+char*** split_args(list_t* list) {
+    int pipe_position = find_pipe(list);
+    int len = pipe_position + 1;
+    char** out1 = (char**) malloc(sizeof(char*) * len);
+    struct list_elem* current = list->first;
+
+    for(int i=0; i < len-1; i++) {
+        out1[i] = current->data;
+        current = current->next;
+    }
+    out1[len-1] = NULL;
+
+    // Second half
+    len = list_len(list) - pipe_position;
+    char** out2 = (char**) malloc(sizeof(char*) * len);
+    current = list->first;
+    for(int i=0; i < pipe_position; i++) {
+        current = current->next;
+    }
+
+    current = current->next;
+    for(int i=0; i < len-1; i++) {
+        out2[i] = current->data;
+        current = current->next;
+    }
+    out2[len-1] = NULL;
+
+
+    char*** out = (char***) malloc(sizeof(char**) * 2);
+    out[0] = out1;
+    out[1] = out2;
+    return out;
+}
+
+void wait_on_list(list_t* list) {
+    int pid;
+    while(list->first != NULL) {
+        pid = list->first->data;
+        waitpid(pid, NULL, 0);
+        list_remove(list, list->first);
+    }
+}
+
+void kill_processes(list_t* list) {
+    int pid;
+    while(list->first != NULL) {
+        pid = list->first->data;
+        kill(pid, SIGKILL);
+        list_remove(list, list->first);
+    }
+}
     
 
 int main(int argc, char const *argv[], char *envp[])
@@ -128,12 +195,49 @@ int main(int argc, char const *argv[], char *envp[])
             else {
                 char* input_file = get_input_file(list);
                 char* output_file = get_output_file(list);
-                #ifdef DEBUG
-                    pid = 0;
-                #else
+                int has_pipe = find_pipe(list);
+                char** args;
+                char* name;
+                int id = -1;
+                int pipes[2];
+                if(has_pipe == -1) {
+                    args = list_to_args_array(list);
+                    #ifdef DEBUG
+                        pid = 0;
+                    #else
+                        pid = fork();
+                    #endif
+                    if(pid != 0) {
+                        int pid_copy = malloc(sizeof(int));
+                        pid_copy = pid;
+                        list_append(pids, pid_copy);
+                    }
+                }
+                else {
+                    // We have a pipe, need to start two processes
+                    int pid2;
+                    char*** args_both = split_args(list);
+                    pipe(pipes);
                     pid = fork();
-                #endif
-                //pid = 0;
+                    if(pid == 0) {
+                        args = args_both[0];
+                        id = 0;
+                    } else {
+                        int pid_copy = malloc(sizeof(int));
+                        pid_copy = pid;
+                        list_append(pids, pid_copy);
+                    }
+                    pid2 = fork();
+                    if(pid2 == 0) {
+                        args = args_both[1];
+                        id = 1;
+                        pid = 0;
+                    } else {
+                        int pid_copy = malloc(sizeof(int));
+                        pid_copy = pid2;
+                        list_append(pids, pid_copy);
+                    }
+                }
                 if(pid == 0) {
                     if(input_file != NULL) {
                         close(0);
@@ -144,8 +248,22 @@ int main(int argc, char const *argv[], char *envp[])
                         open(output_file, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR);
                     }
 
-                    char** args = list_to_args_array(list);
-                    char* name = args[0];
+                    if(has_pipe != -1) {
+                        if(id == 0) {
+                            printf("Reached 1\n");
+                            fflush(1);
+                            dup2(1, pipes[1]);
+                            close(pipes[0]);
+                        }
+                        else if(id == 1) {
+                            printf("Reached 2\n");
+                            fflush(1);
+                            dup2(0, pipes[0]);
+                            close(pipes[1]);
+                        }
+                    }
+
+                    name = args[0];
 
                     if(strchr(name, '/') != NULL) {
                         char* last_slash_ptr = strrchr(name, '/');
@@ -154,7 +272,8 @@ int main(int argc, char const *argv[], char *envp[])
                         new_name = strncpy(new_name, name+last_slash+1, strlen(name) - last_slash);
                         args[0] = new_name;
                         if(execve(name, args, envp) == -1) {
-                            printf("ERROR");
+                            printf("ERROR\n");
+                            kill_processes(pids);
                             return -1;
                         }
                     }
@@ -192,12 +311,16 @@ int main(int argc, char const *argv[], char *envp[])
                         }
                         
                     }
-                    printf("ERROR");
+                    kill_processes(pids);
+                    printf("ERROR\n");
                     return -1;
                 }
                 else {
-                    list_append(pids, (char*) &pid);
-                    wait(NULL);
+                    if(id == -1 && has_pipe != -1) {
+                        close(pipes[0]);
+                        close(pipes[1]);
+                    }
+                    wait_on_list(pids);
                     fflush(stdout);
                 }
             }
@@ -205,7 +328,6 @@ int main(int argc, char const *argv[], char *envp[])
         }
         
     }
-
-
     return 0;
+
 }
