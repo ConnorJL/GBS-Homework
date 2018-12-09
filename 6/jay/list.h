@@ -22,7 +22,7 @@ struct list_elem *list_find (list_t *list, char *data, int (*cmp_elem) (const ch
 ////////////////////////////////////////
 
 int list_size(list_t *list);
-int list_to_array(list_t *list, char *resultArray[]);
+char **list_to_array(list_t *list);
 
 
 

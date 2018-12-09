@@ -17,10 +17,23 @@
 
 list_t *parseUserInput(char *userInput);
 
+list_t *parsePath() {
+	list_t *pathsList = list_init();
+	char *paths = strdup(getenv("PATH"));
+	char *path = strtok(paths, ":");
+
+	while (path != NULL) {
+		list_append(pathsList, strdup(path));
+		path = strtok(NULL, ":");
+	}
+	free(paths);
+	return pathsList;
+}
+
 int main(int argc, char *argv[], char *envp[]) {
 
 	char *userInput = malloc(maxSize * sizeof(char));
-//	char *userInput = "ls\n";
+//	char *userInput = "dd232 ddxyz\n";
 	list_t *userInputElements;
 	list_t *processes = list_init();
 	pid_t childPID;
@@ -33,39 +46,42 @@ int main(int argc, char *argv[], char *envp[]) {
 		if (fgets(userInput, maxSize, stdin) == NULL)
 			return -1;
 
-//Terminate Prompt
+		//Terminate Prompt
 		if (strcmp(userInput, "exit\n") == 0) {
-//			printf("1:%s\n", "exit");
 			break;
 		}
-
 		userInputElements = parseUserInput(userInput);
+		childPID = fork();
+//		childPID = 0;
+		switch (childPID) {
+		case 0://child process
+			;
+			char **parameters = list_to_array(userInputElements);
+			programName = parameters[0];
 
-		int size = list_size(userInputElements);
-		char *resultArray[size + 1];
-		resultArray[size] = NULL;
-		list_to_array(userInputElements, resultArray);
-
-		switch ((childPID = fork())) {
-		case 0:		//child process
-			programName = resultArray[0];
 			//Is it a dynamic Path or a total Path to Programm
 			if (strchr(programName, '/') == NULL) {
 				//Parse dynamic Path by searching the environment
-				char *allPaths = getenv("PATH");
-				int sizeOfAllPaths = strlen(allPaths);
-				char *totalPath = malloc(4 * sizeOfAllPaths);
-				totalPath = strtok(allPaths, ":");
-				strcat(totalPath, "/");
-				strcat(totalPath, programName);
-				while (totalPath != NULL) {
-					execve(totalPath, resultArray, envp);
-					totalPath = strtok(NULL, ":");
-					strcat(totalPath, "/");
-					strcat(totalPath, programName);
+				list_t *pathsList = parsePath();
+
+				int numberOfPaths = list_size(pathsList);
+				char **pathsArray = list_to_array(pathsList);
+				char path[1024];
+				for (int i = 0; i < numberOfPaths; i++) {
+					snprintf(path, 1024, "%s/%s", pathsArray[i], programName);
+					execve(path, parameters, envp);
 				}
-			} else
-				execve(programName, resultArray, envp);
+			} else {
+
+				char* last_slash_ptr = strrchr(programName, '/');
+				int last_slash = last_slash_ptr - programName;
+				char *progNameOnly = (char*) malloc(
+						(strlen(programName) - last_slash) * sizeof(char) + 1);
+				progNameOnly = strncpy(progNameOnly, programName + last_slash + 1,
+						strlen(programName) - last_slash);
+				parameters[0] = progNameOnly;
+				execve(programName, parameters, envp);
+			}
 			printf("-mysh: %s: command not found\n", programName);
 			break;
 		case -1:	//ERROR
@@ -73,14 +89,18 @@ int main(int argc, char *argv[], char *envp[]) {
 			break;
 		default:	//parent process
 			list_append(processes, (char *) &childPID);
+			wait(NULL);
 			break;
 		}
+
+		list_finit(userInputElements);
+
 	}
 
 	//Wait for every child Process
 	int wstatus;
 	int numOfProcesses = list_size(processes);
-	for (int i = 0; i <= numOfProcesses; i++) {
+	for (int i = 0; i < numOfProcesses; i++) {
 		if ((wait(&wstatus)) == -1)
 			return -1;
 	}

@@ -154,18 +154,26 @@ int list_size(list_t *list) {
 	return size;
 }
 
-int list_to_array(list_t *list, char *resultArray[]) {
+char **list_to_array(list_t *list) {
 	if (list == NULL || list->first == NULL)
-		return -1;
+		return NULL;
+
+	int size = list_size(list) + 1;
+	char **result = (char**) malloc(sizeof(char*) * size);
 
 	int count = 0;
 	struct list_elem *current = list->first;
 
 	while (current != NULL) {
-		resultArray[count] = current->data;
+		result[count] = current->data;
 		current = current->next;
 		count++;
 	}
+	//Should always be true
+	if(count+1 == size)
+		result[size-1] = NULL;
+	else
+		perror("list to array faild");
 
-	return 1;
+	return result;
 }

@@ -99,6 +99,7 @@ list_t *parseUserInput(char *userInput) {
 			envVarContent = strdup(getenv(envVarName));
 
 			if (0 < counter && envVarContent != NULL) {
+					//need additional memory for environmentVar Content minus length of envVarName
 					memoryNeeded += strlen(envVarContent) * sizeof(char) - counter - 1;
 					currentElement = (char *) realloc(currentElement, memoryNeeded);
 					strcat(currentElement, envVarContent); //append VarContent to Output
