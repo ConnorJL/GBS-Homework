@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="8" targetName="server_v1.0" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4ff49757-0c14-4335-9736-7ecee816776f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Jacob/asc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/asc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Jacob/hd.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/hd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Jacob/hexdump.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/hexdump.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Jacob/hw.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/hw.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Jacob/rotup.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/rotup.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Julia/asc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Julia/asc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Julia/hd.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Julia/hd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Julia/hexdump.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Julia/hexdump.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Julia/hw.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Julia/hw.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/Julia/rotup.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Julia/rotup.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/asc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/asc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/hd.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/hd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/hexdump.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/hexdump.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/hw.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/hw.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/rotup.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/rotup.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/Julia/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/Julia/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/Julia/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../2/Julia/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/Julia/lt.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/Julia/lt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/Julia/shellsim.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/Julia/shellsim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../2/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/connor/lt.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/connor/lt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/connor/shellsim.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/connor/shellsim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/jay/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../2/jay/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/jay/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/jay/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../2/jay/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/jay/lt.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/jay/lt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2/jay/shellsim.c" beforeDir="false" afterPath="$PROJECT_DIR$/../2/jay/shellsim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../3/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/connor/forkmany.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/connor/forkmany.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/connor/forkone.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/connor/forkone.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../3/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/jay/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../3/jay/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/jay/forkmany.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/jay/forkmany.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/jay/forkone.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/jay/forkone.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/jay/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/jay/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../3/jay/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/julia/forkmany.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/julia/forkmany.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/julia/forkone.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/julia/forkone.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/julia/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../3/julia/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3/julia/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../3/julia/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../4/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../4/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/connor/print_time_step.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/connor/print_time_step.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/connor/threadit.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/connor/threadit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/backupThreadIt/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/backupThreadIt/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/backupThreadIt/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/backupThreadIt/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/backupThreadIt/threadit.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/backupThreadIt/threadit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/list2.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/list2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/list2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/list2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/threadit.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/threadit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/jay/threadsched.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/jay/threadsched.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/print_time_step.c" beforeDir="false" afterPath="$PROJECT_DIR$/../4/print_time_step.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../5/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../5/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5/connor/syncem.c" beforeDir="false" afterPath="$PROJECT_DIR$/../5/connor/syncem.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5/connor/syncorder.c" beforeDir="false" afterPath="$PROJECT_DIR$/../5/connor/syncorder.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../6/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/connor/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/connor/mysh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/connor/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/connor/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/connor/parsertest.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/connor/parsertest.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/jay/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/jay/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../6/jay/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/jay/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/jay/mysh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/jay/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/jay/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6/jay/parsertest.c" beforeDir="false" afterPath="$PROJECT_DIR$/../6/jay/parsertest.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../7/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/connor/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/connor/mysh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/connor/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/connor/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/jay/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/jay/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/mysh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/jay/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/connor/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/connor/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connor/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/connor/server.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/IBMserver.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/IBMserver.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/jay/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v1.0/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v1.0/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v1.0/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v1.0/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v1.0/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v1.0/server.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v2.0/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v2.0/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v2.0/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v2.0/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v2.0/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v2.0/server.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v3.0/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v3.0/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v3.0/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v3.0/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v3.0/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v3.0/server.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server.c" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/jay/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/jay/server_v2.0/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/jay/server_v1.0/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="290046344">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="c" value="10" />
+          <entry key="h" value="2" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CMakeLists.txt" value="1" />
+          <entry key="ObjectiveC" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="c" value="834" />
+          <entry key="txt" value="75" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CMakeLists.txt" value="75" />
+          <entry key="ObjectiveC" value="834" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jay/IBMserver.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5746">
+              <caret line="338" selection-start-line="338" selection-end-line="338" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jay/server_v1.0/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jay/server_v1.0/server.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+              <folding>
+                <element signature="e#72#95#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jay/server_v1.0/list.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jay/server_v1.0/list.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SERVER_TIMEOUT</find>
+      <find>CLIENT_TIMEOUT</find>
+      <find>echoservice</find>
+      <find>buf</find>
+      <find>parse</find>
+      <find>list</find>
+      <find>sockaddr</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/jay/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/jay/server_v2.0/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/jay/server_v2.0/hexdump.c" />
+        <option value="$PROJECT_DIR$/jay/server_v1.0/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/jay/server_v1.0/hexdump.c" />
+        <option value="$PROJECT_DIR$/jay/server_v1.0/server.c" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="1" />
+    <option name="width" value="1280" />
+    <option name="height" value="726" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="8" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="8" type="462c0819:PsiDirectoryNode" />
+              <item name="jay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="8" type="462c0819:PsiDirectoryNode" />
+              <item name="jay" type="462c0819:PsiDirectoryNode" />
+              <item name="server_v1.0" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="8" type="462c0819:PsiDirectoryNode" />
+              <item name="jay" type="462c0819:PsiDirectoryNode" />
+              <item name="server_v2.0" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/jay/server_v1.0/CMakeLists.txt" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Outlook\Documents\Uni\S3\Betriebssysteme\Shared\GBS\GBS-Homework\8\jay\server_v1.0" />
+      <recent name="C:\Users\Outlook\Documents\Uni\S3\Betriebssysteme\Shared\GBS\GBS-Homework\8\jay\server_v2.0" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.server_v1.0">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="8" TARGET_NAME="server_v2.0" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="8" RUN_TARGET_NAME="server_v2.0">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server_v1.0" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="8" TARGET_NAME="server_v1.0" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="8" RUN_TARGET_NAME="server_v1.0">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.server_v1.0" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ff49757-0c14-4335-9736-7ecee816776f" name="Default Changelist" comment="" />
+      <created>1544900096279</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544900096279</updated>
+      <workItem from="1544900097935" duration="6315000" />
+      <workItem from="1544910758702" duration="6458000" />
+      <workItem from="1544919499529" duration="13611000" />
+      <workItem from="1544981570918" duration="913000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="27297000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Bucklescript" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32843137" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32843137" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="13" weight="0.32843137" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/jay/server_v2.0/list.c" />
+    <entry file="file://$PROJECT_DIR$/jay/server_v2.0/server.c" />
+    <entry file="file://$PROJECT_DIR$/jay/server_v2.0/hexdump.c" />
+    <entry file="file://$PROJECT_DIR$/../2/connor/shellsim.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../3/connor/forkone.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../6/connor/parsertest.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../6/connor/parser.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/sys/socket.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/IBMserver.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5746">
+          <caret line="338" selection-start-line="338" selection-end-line="338" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/list.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/list.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/server.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="e#72#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

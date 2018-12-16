@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Outlook/Documents/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/8/jay/server_v1.0/server.c
+sys/socket.h
+-
+sys/select.h
+-
+sys/types.h
+-
+sys/un.h
+-
+sys/time.h
+-
+netdb.h
+-
+unistd.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+poll.h
+-
+errno.h
+-
+
