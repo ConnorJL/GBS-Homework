@@ -12,8 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff49757-0c14-4335-9736-7ecee816776f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../1/Jacob/asc.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/asc.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../1/Jacob/hd.c" beforeDir="false" afterPath="$PROJECT_DIR$/../1/Jacob/hd.c" afterDir="false" />
@@ -94,6 +92,12 @@
       <change beforePath="$PROJECT_DIR$/../7/jay/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/list.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../7/jay/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/mysh.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../7/jay/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../7/jay/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/8.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connor/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/connor/list.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connor/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/connor/list.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connor/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/connor/server.c" afterDir="false" />
@@ -110,6 +114,12 @@
       <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v3.0/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v3.0/list.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jay/old_versions/server_v3.0/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/old_versions/server_v3.0/server.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jay/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server_v1.0/cmake-build-debug/CMakeFiles/server_v1.0.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server_v1.0/cmake-build-debug/CMakeFiles/server_v1.0.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server_v1.0/hexdump.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server_v1.0/hexdump.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server_v1.0/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server_v1.0/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server_v1.0/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server_v1.0/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server_v1.0/server" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server_v1.0/server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jay/server_v1.0/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/jay/server_v1.0/server.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/jay/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/jay/server_v2.0/cmake-build-debug/" />
@@ -120,7 +130,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FUSProjectUsageTrigger">
     <session id="290046344">
       <usages-collector id="statistics.lifecycle.project">
@@ -137,6 +146,7 @@
         <counts>
           <entry key="c" value="10" />
           <entry key="h" value="2" />
+          <entry key="py" value="1" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -144,18 +154,19 @@
         <counts>
           <entry key="CMakeLists.txt" value="1" />
           <entry key="ObjectiveC" value="12" />
+          <entry key="Python" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="834" />
+          <entry key="c" value="977" />
           <entry key="txt" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="75" />
-          <entry key="ObjectiveC" value="834" />
+          <entry key="ObjectiveC" value="977" />
         </counts>
       </usages-collector>
     </session>
@@ -167,9 +178,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5746">
               <caret line="338" selection-start-line="338" selection-end-line="338" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -186,23 +194,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jay/server_v1.0/tester.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jay/server_v1.0/server.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-              <folding>
-                <element signature="e#72#95#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1462">
+              <caret line="86" column="79" selection-start-line="86" selection-start-column="71" selection-end-line="86" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -214,13 +225,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jay/server_v1.0/list.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -234,6 +239,8 @@
       <find>parse</find>
       <find>list</find>
       <find>sockaddr</find>
+      <find>PORT</find>
+      <find>printf</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -246,8 +253,8 @@
         <option value="$PROJECT_DIR$/jay/server_v2.0/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/jay/server_v2.0/hexdump.c" />
         <option value="$PROJECT_DIR$/jay/server_v1.0/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/jay/server_v1.0/hexdump.c" />
         <option value="$PROJECT_DIR$/jay/server_v1.0/server.c" />
+        <option value="$PROJECT_DIR$/jay/server_v1.0/hexdump.c" />
       </list>
     </option>
   </component>
@@ -324,7 +331,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.server_v1.0">
+  <component name="RunManager" selected="Unknown.Build All310989942">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="8" TARGET_NAME="server_v2.0" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="8" RUN_TARGET_NAME="server_v2.0">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -335,10 +342,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Build All" />
-      <item itemvalue="Application.server_v1.0" />
-    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -353,24 +356,24 @@
       <workItem from="1544900097935" duration="6315000" />
       <workItem from="1544910758702" duration="6458000" />
       <workItem from="1544919499529" duration="13611000" />
-      <workItem from="1544981570918" duration="913000" />
+      <workItem from="1544981570918" duration="7091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27297000" />
+    <option name="totallyTimeSpent" value="33475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2647504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -381,10 +384,13 @@
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="13" weight="0.32843137" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,22 +398,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c</url>
-          <line>7</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c</url>
-          <line>8</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/jay/server_v2.0/list.c" />
@@ -452,9 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5746">
           <caret line="338" selection-start-line="338" selection-end-line="338" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -469,31 +456,26 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/jay/server_v1.0/list.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/server.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1462">
+          <caret line="86" column="79" selection-start-line="86" selection-start-column="71" selection-end-line="86" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jay/server_v1.0/hexdump.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jay/server_v1.0/server.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding>
-            <element signature="e#72#95#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="9" />
         </state>
       </provider>
     </entry>

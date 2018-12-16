@@ -44,10 +44,9 @@ void hexdump(int sd, struct sockaddr *sin, int sender_len, char *buffer, int len
         }
         sprintf(buf, "%s\n", buf);
 
-        printf("buf: %s\n", buf);
-        length = sendto(sd, buf, strlen(buf), 0, sin,
+        int send_stat = sendto(sd, buf, strlen(buf), 0, sin,
                           sender_len);
-        if (length < 0) {
+        if (send_stat < 0) {
             perror("write() to socket Error\n");;
             exit(-1);
         }

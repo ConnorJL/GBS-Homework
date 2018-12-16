@@ -84,7 +84,7 @@ void hexdumpservice(struct connection conn) {
 
     input[sizeread] = '\0';
 
-    hexdump(conn.sd, (struct sockaddr *) &conn.sin, sender_len, input, sizeread);
+    hexdump(conn.sd, (struct sockaddr *) &conn.sin, sender_len, input, sizeread - 1);
 
 //    sizeread = sendto(conn.sd, input, sizeread, 0, (struct sockaddr *) &conn.sin,
 //                      sender_len);
@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
 	bzero(&server_addr, sizeof(server_addr)); //Clear
 
 	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(PORT);
+	server_addr.sin_port = htons(PORT2);
 	server_addr.sin_addr.s_addr = INADDR_ANY;
 
 	check = bind(socketfd, (struct sockaddr *) &server_addr, sizeof(server_addr));
