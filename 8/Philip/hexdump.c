@@ -8,7 +8,7 @@
 void hexdump(int sd, struct sockaddr *sin, int sender_len, char *buffer, int length) {
     int count = 0;
     int done = 0;
-    char buf[1024 * 80];
+    char buf[1024*80];
     buf[0] = '\0';
     //printf("Test: %.2x\n", buffer[0]);
     // Looping over lines
@@ -48,10 +48,11 @@ void hexdump(int sd, struct sockaddr *sin, int sender_len, char *buffer, int len
 
 //        write(socketfd, buf, sizeof(buf));
     }
+
     int send_stat = sendto(sd, buf, strlen(buf), 0, sin,
-                           sender_len);
+                      sender_len);
     if (send_stat < 0) {
-        perror("write() to socket Error in hd\n");;
+        perror("write() to socket Error\n");;
         exit(-1);
     }
 }

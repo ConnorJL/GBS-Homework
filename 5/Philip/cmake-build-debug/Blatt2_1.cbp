@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Blatt2_1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Philip">
+				<Option output="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Philip" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 Philip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Philip/fast">
+				<Option output="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Philip" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 Philip/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/list.c">
+			<Option target="Philip"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/list.h">
+			<Option target="Philip"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/threadit.c">
+			<Option target="Philip"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

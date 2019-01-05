@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/list.c
+stdio.h
+-
+stdlib.h
+-
+list.h
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/list.h
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/list.h
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/threadit.c
+stdlib.h
+-
+stdio.h
+-
+time.h
+-
+unistd.h
+-
+sys/wait.h
+-
+pthread.h
+-
+list.h
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/5/Philip/list.h
+
