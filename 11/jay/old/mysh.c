@@ -17,12 +17,9 @@
 #include <errno.h>
 
 #include "list.h"
-#include "wildcard.h"
 #define maxSize 1024
-//#define DEBUG
 
 list_t *parseUserInput(char *userInput);
-char *parseFullFilename(char *wildpath);
 
 list_t *parsePath() {
 	list_t *pathsList = list_init();
@@ -44,15 +41,11 @@ int main(int argc, char *argv[], char *envp[]) {
 	pid_t childPID;
 	char *programName;
 
-#if !defined(DEBUG)
 	char *userInput = malloc(maxSize * sizeof(char));
-#else
-	char *userInput = "echo *\n";	/////////DEBUG
-#endif
+//	char *userInput = "echo < hh <\n";	/////////DEBUG
 
 	while (1) {
 
-#if !defined(DEBUG)
 		//Prompt User to input command
 		fprintf(stdout, "%s $ ", getenv("PWD"));
 		fflush(stdout);
@@ -63,11 +56,6 @@ int main(int argc, char *argv[], char *envp[]) {
 		//Terminate Prompt
 		if (strcmp(userInput, "exit\n") == 0)
 			break;
-
-		//Catch empty input
-		if (strlen(userInput) <= 1)
-			continue;
-#endif
 
 		//Transform shell command into list of command elements
 		userInputElements = parseUserInput(userInput);
@@ -93,8 +81,7 @@ int main(int argc, char *argv[], char *envp[]) {
 				if (check < 0) { //Error
 					fprintf(stdout, "%s\n", strerror(errno));
 					fflush(stdout);
-				} else
-					//change dir successfull
+				} else  //change dir successfull
 					check = setenv("PWD", getcwd(NULL, 0), 1);
 				break;
 
@@ -103,7 +90,9 @@ int main(int argc, char *argv[], char *envp[]) {
 				fprintf(stdout, "%s\n", "Usage: cd <dir>");
 				fflush(stdout);
 				break;
+
 			}
+
 			continue;
 		}
 
@@ -111,11 +100,9 @@ int main(int argc, char *argv[], char *envp[]) {
 		///// STOP: ADDING CD SUPPORT //////////
 		////////////////////////////////////////
 
-#if !defined(DEBUG)
 		childPID = fork();
-#else
-		childPID = 0;	/////////DEBUG
-#endif
+//		childPID = 0;	/////////DEBUG
+
 		switch (childPID) {
 		case 0: //child process
 			;
@@ -176,7 +163,7 @@ int main(int argc, char *argv[], char *envp[]) {
 			parameter = parameters[i];
 			while (parameter != NULL) {
 				if (strcmp(parameter, "<") == 0 || strcmp(parameter, ">") == 0) {
-					//last entry has to be NULL for execve()
+
 					parameters[i] = NULL;
 					break;
 				}
@@ -184,30 +171,7 @@ int main(int argc, char *argv[], char *envp[]) {
 				parameter = parameters[i];
 			}
 
-			//////////////////////////////////////////////
-			///// START: ADDING WILDCARD SUPPORT /////////
-			//////////////////////////////////////////////
-
-			i = 1;
-			parameter = parameters[i];
-			while (parameter != NULL) {
-				if (strchr(parameter, '*') != NULL) {
-					if (strcmp(parameter, "*") == 0) {
-						//Wildcard only
-						parameter = parseFullFilename(parameter);
-					}
-
-					parameters[i] = parameter;
-				}
-				i++;
-				parameter = parameters[i];
-			}
-
-			//////////////////////////////////////////////
-			///// STOP: ADDING WILDCARD SUPPORT //////////
-			//////////////////////////////////////////////
-
-			//Is it a dynamic or absolute Path to Programm
+			//Is it a dynamic Path or a total Path to Programm
 			if (strchr(programName, '/') == NULL) {
 				//Parse dynamic Path by searching the environment
 				list_t *pathsList = parsePath();
@@ -215,12 +179,12 @@ int main(int argc, char *argv[], char *envp[]) {
 				int numberOfPaths = list_size(pathsList);
 				char **pathsArray = list_to_array(pathsList);
 				char path[1024];
-				for (i = 0; i < numberOfPaths; i++) {
+				for (int i = 0; i < numberOfPaths; i++) {
 					snprintf(path, 1024, "%s/%s", pathsArray[i], programName);
 					execve(path, parameters, envp);
 				}
 			} else {
-				//Use absolute Path by searching the environment
+
 				char* last_slash_ptr = strrchr(programName, '/');
 				int last_slash = last_slash_ptr - programName;
 				char *progNameOnly = (char*) malloc(
