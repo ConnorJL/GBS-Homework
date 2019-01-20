@@ -36,40 +36,112 @@ int filter_dir(char *op, char *dir) {
     return x_star_filter(dir, op);
 }
 
-//char **getPoss(char **ops, int op_len, char **acc) {
+//char *getStringOfPoss(op, op_len, malloc(1024));
+
+//char **getPoss(char **op, int op_len, char **acc, int i) {
 //    if (op_len == 0) {
-//
+//        return acc;
+//    } else {
+//        char *star_pos = strchr(op[i], '*');
+//        if (star_pos != NULL) {
+//            struct dirent **dirs = NULL;
+//            int dir_len;
+//            dir_len = scandir(getcwd(NULL, 0), &dirs, NULL, alphasort);
+//            int p = 0;
+//            for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
+//                char *dir_name = dirs[dir_nr]->d_name;
+////                printf("debug");
+//                if (dir_name[0] == '.' || filter_dir(op[i], dir_name) == 0) {
+//                    continue;
+//                }
+//                p = fork();
+//                if (dirs == NULL) {
+//                    printf("dir is null\n");
+//                }
+//                if (p != 0) {
+//                    op[i] = dir_name;
+//                    break;
+//                }
+//            }
+//            if (p == 0) {
+//                exit(0);
+//            }
+//        }
 //    }
 //}
 
+void exec2(char *path, list_t *out, char **envp) {
+    char **outa = (char **) list_to_array(out);
+    execve(path, outa, envp);
+}
+
 void exec(char *path, char **op, char **envp, int op_len) {
-    for (int i = 1; i < op_len; i++) {
-        char *star_pos = strchr(op[i], '*');
-        if (star_pos != NULL) {
-            struct dirent **dirs = NULL;
-            int dir_len;
-            dir_len = scandir(getcwd(NULL, 0), &dirs, NULL, alphasort);
-            int p = 0;
-            for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
-                char *dir_name = dirs[dir_nr]->d_name;
-//                printf("debug");
-                if (dir_name[0] == '.' || filter_dir(op[i], dir_name) == 0) {
-                    continue;
-                }
-                p = fork();
-                if (dirs == NULL) {
-                    printf("dir is null\n");
-                }
-                if (p != 0) {
-                    op[i] = dir_name;
-                    break;
-                }
-            }
-            if (p == 0) {
-                exit(0);
-            }
+    for (int j = 1; j < op_len; j++) {
+//        char *star_pos = strchr(op[i], '*');
+//        if (star_pos != NULL) {
+//            struct dirent **dirs = NULL;
+//            int dir_len;
+//            dir_len = scandir(getcwd(NULL, 0), &dirs, NULL, alphasort);
+//            int p = 0;
+//            for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
+//                char *dir_name = dirs[dir_nr]->d_name;
+////                printf("debug");
+//                if (dir_name[0] == '.' || filter_dir(op[i], dir_name) == 0) {
+//                    continue;
+//                }
+//                p = fork();
+//                if (dirs == NULL) {
+//                    printf("dir is null\n");
+//                }
+//                if (p != 0) {
+//                    op[i] = dir_name;
+//                    break;
+//                }
+//            }
+//            if (p == 0) {
+//                exit(0);
+//            }
+//        }
+        char *star_pos = strchr(op[j], '*');
+        if (star_pos == NULL) {
+            continue;
         }
+//        printf("nice1");
+
+        struct dirent **namelist;
+        char *element;
+        char *result = (char *) malloc(sizeof(char));
+        result[0] = '\0';
+        int oldsize;
+        int newsize;
+        int n;
+        int i = 0;
+
+        n = scandir(getcwd(NULL, 0), &namelist, NULL, alphasort);
+        if (n < 0)
+            perror("scandir");
+//        printf("nice3");
+        while (i < n) {
+            element = strdup(namelist[i]->d_name);
+            free(namelist[i++]);
+//            printf("nice3a");
+            if (element[0] == '.' || filter_dir(op[j], element) == 0) //skip . .. and files starting with .
+                continue;
+//            printf("nice4a");
+            oldsize = (int)strlen(result);
+            newsize = oldsize + (int)strnlen(element, 256) + 2; // +2 because of terminating NULL char and space bewtween elements
+            result = (char *) realloc(result, (size_t)newsize);
+            if (oldsize != 0) //skips the first iteration
+                strcat(result, " ");
+            strcat(result, element);
+        }
+        free(namelist);
+        op[j] = result;
+//        printf("\nres: %s\n", result);
     }
+//    getStringOfPoss(op, op_len, malloc(1024));
+//    getPoss(op, op_len, malloc(sizeof(op)), 0);
+//    printf("nice7");
     execve(path, op, envp);
 }
 
@@ -121,7 +193,8 @@ int main(int argc, char *argv[], char *envp[]) {
             if ((p = fork()) == 0) {
                 // child process
                 if (strchr(outa[0], '/')) {
-                    exec(outa[0], outa, envp, list_len(out));
+                    exec2(outa[0], out, envp);
+//                    exec(outa[0], outa, envp, list_len(out));
                     printf("exec returned, meaning the filename was wrong");
                     return -1;
                 } else {
@@ -143,7 +216,8 @@ int main(int argc, char *argv[], char *envp[]) {
                         strcat(path, oldPath);
                         strcat(path, "/");
                         strcat(path, outa[0]);
-                        exec(path, outa, envp, list_len(out));
+                        exec2(path, out, envp);
+//                        exec(path, outa, envp, list_len(out));
                         path = strtok(NULL, ":");
                     }
                     printf("No valid path found!\n");
