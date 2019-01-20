@@ -30,8 +30,9 @@ int filter_dir(char *op, char *dir) {
 //        return star_x_filter(dir, op);
 //    }
 //    return x_star_filter(dir, op);
-//printf("test %s and %s \n", op, dir);
-return x_star_x_filter(dir, op);
+    int ret = x_star_x_filter(dir, op);
+//    printf("test %s and %s returned %d\n", op, dir, ret);
+    return ret;
 }
 
 //char *getStringOfPoss(op, op_len, malloc(1024));
@@ -48,7 +49,6 @@ return x_star_x_filter(dir, op);
 //            int p = 0;
 //            for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
 //                char *dir_name = dirs[dir_nr]->d_name;
-////                printf("debug");
 //                if (dir_name[0] == '.' || filter_dir(op[i], dir_name) == 0) {
 //                    continue;
 //                }
@@ -106,7 +106,6 @@ void exec(char *path, char **op, char **envp, int op_len) {
 //            int p = 0;
 //            for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
 //                char *dir_name = dirs[dir_nr]->d_name;
-////                printf("debug");
 //                if (dir_name[0] == '.' || filter_dir(op[i], dir_name) == 0) {
 //                    continue;
 //                }
@@ -127,7 +126,6 @@ void exec(char *path, char **op, char **envp, int op_len) {
         if (star_pos == NULL) {
             continue;
         }
-//        printf("nice1");
 
         struct dirent **namelist;
         char *element;
@@ -149,9 +147,10 @@ void exec(char *path, char **op, char **envp, int op_len) {
             if (element[0] == '.' || filter_dir(op[j], element) == 0) //skip . .. and files starting with .
                 continue;
 //            printf("nice4a");
-            oldsize = (int)strlen(result);
-            newsize = oldsize + (int)strnlen(element, 256) + 2; // +2 because of terminating NULL char and space bewtween elements
-            result = (char *) realloc(result, (size_t)newsize);
+            oldsize = (int) strlen(result);
+            newsize = oldsize + (int) strnlen(element, 256) +
+                      2; // +2 because of terminating NULL char and space bewtween elements
+            result = (char *) realloc(result, (size_t) newsize);
             if (oldsize != 0) //skips the first iteration
                 strcat(result, " ");
             strcat(result, element);
@@ -174,9 +173,7 @@ int main(int argc, char *argv[], char *envp[]) {
     setvbuf(stdout, NULL, _IONBF, 0);
     while (1) {
 //        printf("%s $ ", (char *) pwd->first->data);
-        char *tpwd = GetPWD(envp);
-        printf("%s $ ", tpwd);
-        free(tpwd);
+        printf("%s $ ", getcwd(NULL, 0));
         fgets(inp, 1023, stdin);
         inp[strcspn(inp, "\n")] = 0;
         if (strncmp(inp, "exit", 1024) == 0) {

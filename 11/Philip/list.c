@@ -113,8 +113,8 @@ void *list_remove(list_t *list, struct list_elem *elem) {
             }
         }
     }
-    free(elem);
-    return data;
+//    free(elem);
+    return elem->data;
 }
 
 void list_finit(list_t *list) {
