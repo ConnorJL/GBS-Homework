@@ -50,6 +50,18 @@ void *list_get(list_t *list, int ind) {
     return curr->data;
 }
 
+void *list_get_p(list_t *list, int ind) {
+    struct list_elem *curr = list->first;
+    for (int i = 0; i < ind; i++) {
+        if (curr->next == '\0') {
+            printf("Warning: ind %d is out of range!", ind);
+            return 0;
+        }
+        curr = curr->next;
+    }
+    return curr;
+}
+
 struct list_elem *list_insert(list_t *list, void *data) {
     struct list_elem *elm = (struct list_elem *) malloc(2 * (sizeof(void *)));
     elm->next = list->first;
@@ -172,6 +184,18 @@ void **list_to_array(list_t *list) {
         arr[i] = list_get(list, i);
     }
     return arr;
+}
+
+struct list_elem list_put (list_t *list, struct list_elem *current, void *data) {
+    if (current == list->last) {
+        return *list_append(list, data);
+    } else {
+        struct list_elem *elm = (struct list_elem *) malloc(2 * (sizeof(void *)));
+        elm->next = current->next;
+        elm->data = data;
+        current->next = elm;
+        return *elm;
+    }
 }
 
 //ssh -p 22222 student@localhost

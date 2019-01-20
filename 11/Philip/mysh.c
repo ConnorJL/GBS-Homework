@@ -71,7 +71,30 @@ int filter_dir(char *op, char *dir) {
 //}
 
 void exec2(char *path, list_t *out, char **envp) {
+
+    for (int j = 1; j < list_len(out); j++) {
+        char *star_pos = strchr(list_get(out, j), '*');
+        if (star_pos == NULL) {
+            continue;
+        }
+
+        char *w_star = list_remove(out, list_get_p(out, j));
+        struct dirent **dirs = NULL;
+
+        int dir_len = scandir(getcwd(NULL, 0), &dirs, NULL, alphasort);
+
+        for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
+            char *dir_name = dirs[dir_nr]->d_name;
+            if (dir_name[0] == '.'|| filter_dir(w_star, dir_name) == 0) {//
+                continue;
+            }
+            list_put(out, list_get_p(out, j - 1), dir_name);
+            j++;
+        }
+    }
+
     char **outa = (char **) list_to_array(out);
+
     execve(path, outa, envp);
 }
 
