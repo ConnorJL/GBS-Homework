@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/list.c
+stdio.h
+-
+stdlib.h
+-
+list.h
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/list.h
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/list.h
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/mem.c
+stdio.h
+-
+stdlib.h
+-
+getopt.h
+-
+memory.h
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/memory.h
+list.h
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/list.h
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/memory.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+list.h
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/list.h
+
+/mnt/c/Users/Philip/OneDrive/Dokumente/Uni/S3/Betriebssysteme/Shared/GBS/GBS-Homework/9/Philip/memory.h
+stdio.h
+-
+stdlib.h
+-
+

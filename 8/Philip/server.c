@@ -55,7 +55,7 @@ int main (int argc, char *argv[], char *envp[]) {
     char   buffer[1024];
     struct sockaddr_in   addr;
     int    timeout;
-    struct connection conns[10];
+    struct pollfd conns[10];
     struct pollfd fds[10];
     int    nfds = 1, current_size = 0, i, j;
 
@@ -155,6 +155,24 @@ int main (int argc, char *argv[], char *envp[]) {
             break;
         }
 
+        // check for each sd if it has timed out
+        current_size = nfds;
+        for (int j = 0; j < 10; j++) {
+            if(fds[j].fd != conns[j].fd) {
+                if (fds[j].fd == -1) {
+                    conns[j].fd = -1;
+                } else {
+                    conns[j].fd = fds[j].fd;
+//                    int exists = 0;
+//                    for (int jj = 0; jj < 10; jj++) {
+//
+//                    }
+                }
+            };
+        }
+        for (int j = 0; j < current_size; j++) {
+            rc = poll(conns[j], nfds, timeout);
+        }
 
         /***********************************************************/
         /* One or more descriptors are readable.  Need to          */
