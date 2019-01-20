@@ -22,6 +22,7 @@ struct thread_data      *t_data_init(int num, int prio, int start, int time_runn
 list_t           *list_init ();
 int              list_len(list_t *list);
 void            *list_get(list_t *list, int ind);
+void            *list_get_p(list_t *list, int ind);
 struct list_elem *list_insert (list_t *list, void *data);
 struct list_elem *list_append (list_t *list, void *data);
 void *              list_remove (list_t *list, struct list_elem *elem);
@@ -31,6 +32,7 @@ void             list_print (list_t *list, void (*print_elem) (void *));
 void 			 list_dump (list_t *list, void (*print_elem) (struct list_elem *));
 struct list_elem *list_find (list_t *list, void *data, int (*cmp_elem) (const void *, const void *));
 void **			list_to_array(list_t *list);
+struct list_elem list_put (list_t *list, struct list_elem *current, void *data);
 
 
 
