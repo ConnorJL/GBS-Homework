@@ -14,10 +14,9 @@
     <list default="true" id="eae21e87-d253-4096-8878-636eeb3e9ad8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Philip" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Philip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/list.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysh" beforeDir="false" afterPath="$PROJECT_DIR$/mysh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/mysh.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildcard.c" beforeDir="false" afterPath="$PROJECT_DIR$/wildcard.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildcard.h" beforeDir="false" afterPath="$PROJECT_DIR$/wildcard.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/list.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2266">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+            <state relative-caret-position="204">
+              <caret line="98" column="17" lean-forward="true" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -62,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysh.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="87" column="12" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="12" />
+            <state relative-caret-position="255">
+              <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -124,6 +123,7 @@
       <find>cd</find>
       <find>strchr</find>
       <find>list_get</find>
+      <find>list_remo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,9 +137,9 @@
         <option value="$PROJECT_DIR$/../jay/mysh.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/list.h" />
-        <option value="$PROJECT_DIR$/list.c" />
         <option value="$PROJECT_DIR$/wildcard.c" />
         <option value="$PROJECT_DIR$/wildcard.h" />
+        <option value="$PROJECT_DIR$/list.c" />
         <option value="$PROJECT_DIR$/mysh.c" />
       </list>
     </option>
@@ -214,12 +214,12 @@
       <workItem from="1547627950858" duration="1311000" />
       <workItem from="1547749489710" duration="4223000" />
       <workItem from="1547930533295" duration="27099000" />
-      <workItem from="1547997563502" duration="21639000" />
+      <workItem from="1547997563502" duration="22402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65690000" />
+    <option name="totallyTimeSpent" value="66453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1435" height="772" extended-state="6" />
@@ -230,15 +230,15 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.71573603" visible="true" weight="0.32970452" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7128354" visible="true" weight="0.32970452" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.81943434" weight="0.39968896" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4155185" weight="0.32970452" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.81580853" weight="0.3919129" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.28426397" side_tool="true" visible="true" weight="0.32970452" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.8150834" weight="0.3919129" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.2871646" side_tool="true" visible="true" weight="0.32970452" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.32970452" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -300,13 +300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/list.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2266">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../jay/wildcard.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -348,10 +341,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/list.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="98" column="17" lean-forward="true" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mysh.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="87" column="12" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="12" />
+        <state relative-caret-position="255">
+          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

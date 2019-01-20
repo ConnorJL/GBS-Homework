@@ -88,8 +88,8 @@ struct list_elem *list_append(list_t *list, void *data) {
 }
 
 void *list_remove(list_t *list, struct list_elem *elem) {
-    char *data = malloc(sizeof(*elem->data));
-    memcpy(data, elem->data, sizeof(*elem->data));
+    char *data = malloc(sizeof(*elem->data) + 1);
+    memcpy(data, elem->data, sizeof(*elem->data) + 1);
     if (list->first == elem) {
         list->first = elem->next;
         if (list->last == elem) {

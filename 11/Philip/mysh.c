@@ -30,6 +30,7 @@ int filter_dir(char *op, char *dir) {
 //        return star_x_filter(dir, op);
 //    }
 //    return x_star_filter(dir, op);
+//printf("test %s and %s \n", op, dir);
 return x_star_x_filter(dir, op);
 }
 
@@ -85,7 +86,7 @@ void exec2(char *path, list_t *out, char **envp) {
             if (dir_name[0] == '.' || filter_dir(w_star, dir_name) == 0) {//
                 continue;
             }
-            
+
             list_put(out, list_get_p(out, j - 1), dir_name);
             j++;
         }
