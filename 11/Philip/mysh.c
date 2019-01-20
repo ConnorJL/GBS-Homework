@@ -23,17 +23,14 @@ char *GetPWD(char *envp[]) {
 }
 
 int filter_dir(char *op, char *dir) {
-    if (strcmp(op, "*") == 0) {
-//        printf("nr *\n");
-        return 1;
-    }
-    if (op[0] == '*') {
-//        printf("nr *n\n");
-        return star_x_filter(dir, op);
-    }
-//    printf("nr n*n or n*\n");
-    // TODO Add n*n and n*
-    return x_star_filter(dir, op);
+//    if (strcmp(op, "*") == 0) {
+//        return 1;
+//    }
+//    if (op[0] == '*') {
+//        return star_x_filter(dir, op);
+//    }
+//    return x_star_filter(dir, op);
+return x_star_x_filter(dir, op);
 }
 
 //char *getStringOfPoss(op, op_len, malloc(1024));
@@ -85,16 +82,16 @@ void exec2(char *path, list_t *out, char **envp) {
 
         for (int dir_nr = 0; dir_nr < dir_len; dir_nr++) {
             char *dir_name = dirs[dir_nr]->d_name;
-            if (dir_name[0] == '.'|| filter_dir(w_star, dir_name) == 0) {//
+            if (dir_name[0] == '.' || filter_dir(w_star, dir_name) == 0) {//
                 continue;
             }
+            
             list_put(out, list_get_p(out, j - 1), dir_name);
             j++;
         }
     }
 
     char **outa = (char **) list_to_array(out);
-
     execve(path, outa, envp);
 }
 
